@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎉 Fun Math Quiz 🎉</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Comic Neue', cursive;
+  background: linear-gradient(135deg, #FFDEE9, #B5FFFC, #FFE5F0, #C8FFD4);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.container {
+  background: rgba(255,255,255,0.95);
+  padding: 25px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  width: 370px;
+  position: relative;
+}
+
+h1 {
+  color: #FF4500;
+  margin-bottom: 15px;
+}
+
+.menu button, .options button, #changeLesson {
+  background-color: #FF69B4;
+  border: none;
+  padding: 10px 18px;
+  margin: 5px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.menu button:hover, .options button:hover, #changeLesson:hover {
+  transform: scale(1.1);
+  background-color: #FF1493;
+}
+
+.hidden { display: none; }
+
+#level, #score, #correctWrong {
+  font-size: 18px;
+  margin: 8px 0;
+  font-weight: bold;
+}
+
+#question {
+  font-size: 20px;
+  margin: 15px 0;
+  padding: 15px;
+  border-radius: 15px;
+  background: linear-gradient(120deg, #FFD3B6, #FFAAA5);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.options button {
+  width: 45%;
+}
+
+.star, .wrong {
+  position: absolute;
+  font-size: 24px;
+  animation: floatUp 1s ease-out forwards;
+}
+
+.star { color: gold; }
+.wrong { color: red; }
+
+@keyframes floatUp {
+  0% { opacity:1; transform: translateY(0) scale(1); }
+  100% { opacity:0; transform: translateY(-100px) scale(1.5); }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>🎉 Fun Math Quiz 🎉</h1>
+
+  <div class="menu">
+    <p>Choose a math operation:</p>
+    <button onclick="startGame('addition')">➕ Addition</button>
+    <button onclick="startGame('subtraction')">➖ Subtraction</button>
+    <button onclick="startGame('multiplication')">✖️ Multiplication</button>
+    <button onclick="startGame('division')">➗ Division</button>
+  </div>
+
+  <div class="game hidden">
+    <div id="level">Level: 1</div>
+    <div id="score">Score: 0 ⭐</div>
+    <p id="question">Question here</p>
+    <div class="options">
+      <button id="opt1"></button>
+      <button id="opt2"></button>
+      <button id="opt3"></button>
+      <button id="opt4"></button>
+    </div>
+    <div id="correctWrong" class="hidden"></div>
+    <button id="changeLesson">🔄 Change Lesson</button>
+  </div>
+</div>
+
+<script>
+let currentLevel = 1;
+let currentOperation = '';
+let currentAnswer = 0;
+let score = 0;
+let correctCount = 0;
+let wrongCount = 0;
+
+const optionsButtons = Array.from(document.querySelectorAll('.options button'));
+const correctWrongDiv = document.getElementById('correctWrong');
+
+function startGame(operation) {
+  currentOperation = operation;
+  currentLevel = 1;
+  score = 0;
+  correctCount = 0;
+  wrongCount = 0;
+  correctWrongDiv.classList.add('hidden');
+  document.querySelector('.menu').classList.add('hidden');
+  document.querySelector('.game').classList.remove('hidden');
+  updateScore();
+  generateQuestion();
+}
+
+function generateQuestion() {
+  // Use small numbers for 5-8 years old
+  let num1 = Math.floor(Math.random() * 10) + 1;
+  let num2 = Math.floor(Math.random() * 10) + 1;
+
+  if(currentOperation === 'subtraction' && num2 > num1) {
+    [num1, num2] = [num2, num1]; // avoid negative
+  }
+
+  if(currentOperation === 'division') {
+    num1 = num1 * num2; // ensures whole number division
+  }
+
+  switch(currentOperation) {
+    case 'addition': currentAnswer = num1 + num2; break;
+    case 'subtraction': currentAnswer = num1 - num2; break;
+    case 'multiplication': currentAnswer = num1 * num2; break;
+    case 'division': currentAnswer = num1 / num2; break;
+  }
+
+  document.getElementById('question').textContent = `${num1} ${operationSymbol(currentOperation)} ${num2} = ?`;
+
+  // Generate 3 wrong answers close to correct answer
+  let answers = [currentAnswer];
+  while(answers.length < 4) {
+    let wrong = currentAnswer + Math.floor(Math.random()*5 - 2); // small offset
+    if(wrong < 0) wrong = 0;
+    if(!answers.includes(wrong)) answers.push(wrong);
+  }
+
+  shuffleArray(answers);
+
+  optionsButtons.forEach((btn, i) => {
+    btn.textContent = answers[i];
+    btn.onclick = () => checkAnswer(answers[i]);
+  });
+}
+
+function operationSymbol(op) {
+  switch(op) {
+    case 'addition': return '+';
+    case 'subtraction': return '-';
+    case 'multiplication': return '×';
+    case 'division': return '÷';
+  }
+}
+
+function checkAnswer(selected) {
+  if(selected === currentAnswer) {
+    score++;
+    correctCount++;
+    updateScore();
+    spawnStar();
+  } else {
+    wrongCount++;
+    spawnWrong();
+  }
+  currentLevel++;
+  setTimeout(generateQuestion, 700);
+}
+
+function updateScore() {
+  document.getElementById('score').textContent = `Score: ${score} ⭐`;
+  document.getElementById('level').textContent = `Level: ${currentLevel}`;
+}
+
+function shuffleArray(arr) {
+  for(let i = arr.length -1; i>0; i--){
+    const j = Math.floor(Math.random() * (i+1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+}
+
+function spawnStar() {
+  const star = document.createElement('div');
+  star.className = 'star';
+  star.textContent = '⭐';
+  star.style.left = `${Math.random()*280}px`;
+  document.querySelector('.container').appendChild(star);
+  setTimeout(()=> star.remove(), 1000);
+}
+
+function spawnWrong() {
+  const wrong = document.createElement('div');
+  wrong.className = 'wrong';
+  wrong.textContent = '❌';
+  wrong.style.left = `${Math.random()*280}px`;
+  document.querySelector('.container').appendChild(wrong);
+  setTimeout(()=> wrong.remove(), 1000);
+}
+
+// Change lesson button with confirmation
+document.getElementById('changeLesson').addEventListener('click', () => {
+  const confirmChange = confirm("Are you sure you want to change the lesson?");
+  if(confirmChange) {
+    correctWrongDiv.innerHTML = `<p>✅ Correct Answers: ${correctCount}</p>
+                                 <p>❌ Wrong Answers: ${wrongCount}</p>
+                                 <p>Total Score: ${score} ⭐</p>`;
+    correctWrongDiv.classList.remove('hidden');
+    document.querySelector('.menu').classList.remove('hidden');
+    document.querySelector('.game').classList.add('hidden');
+  }
+});
+</script>
+
+</body>
+</html>
