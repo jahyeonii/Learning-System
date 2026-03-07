@@ -1,1 +1,77 @@
+body {
+  margin: 0;
+  font-family: 'Comic Neue', cursive;
+  background: linear-gradient(135deg, #FFDEE9, #B5FFFC, #FFE5F0, #C8FFD4);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
 
+.container {
+  background: rgba(255,255,255,0.95);
+  padding: 25px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  width: 370px;
+  position: relative;
+}
+
+h1 {
+  color: #FF4500;
+  margin-bottom: 15px;
+}
+
+.menu button, .options button, #changeLesson {
+  background-color: #FF69B4;
+  border: none;
+  padding: 10px 18px;
+  margin: 5px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.menu button:hover, .options button:hover, #changeLesson:hover {
+  transform: scale(1.1);
+  background-color: #FF1493;
+}
+
+.hidden { display: none; }
+
+#level, #score, #correctWrong {
+  font-size: 18px;
+  margin: 8px 0;
+  font-weight: bold;
+}
+
+#question {
+  font-size: 20px;
+  margin: 15px 0;
+  padding: 15px;
+  border-radius: 15px;
+  background: linear-gradient(120deg, #FFD3B6, #FFAAA5);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.options button {
+  width: 45%;
+}
+
+.star, .wrong {
+  position: absolute;
+  font-size: 24px;
+  animation: floatUp 1s ease-out forwards;
+}
+
+.star { color: gold; }
+.wrong { color: red; }
+
+@keyframes floatUp {
+  0% { opacity:1; transform: translateY(0) scale(1); }
+  100% { opacity:0; transform: translateY(-100px) scale(1.5); }
+}
