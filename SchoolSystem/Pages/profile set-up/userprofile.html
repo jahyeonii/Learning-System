@@ -1,11 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>StudyGo - Profile Set-up</title>
+        <link rel="stylesheet" href="../../css/styles.css">
+    </head>
+    <body>
+        <div class="form-box">
+            <form action="" method="post"> 
+                <h1>Profile Set-up</h1>
+                <label for="profile-pic" id="avatarLabel">
+                <div id="avatarCircle">📷</div>
+                <p>Click to upload photo</p>
+                </label>
+                <input type="file" name="profile-pic" id="profile-pic" accept="image/*" style="display:none"> <br /> <br />
+                <label for="first-name">First Name:</label>
+                <input type="text" name="first-name"  id="first-name" placeholder="Enter your first name here" required> <br /> <br />
+                <label for="middle-inital">Middle Initial:</label>
+                <input type="text" name="middle-inital"  id="middle-inital" placeholder="Enter your Middle Initial here" required> <br /> <br />
+                <label for="surname">Surname:</label>
+                <input type="text" name="surname"  id="surname" placeholder="Enter your Surname/Family Name here" required> <br /> <br />
+                <label for="birthday">Birthday:</label>
+                <input type="date" name="birthday"  id="birthday" required> <br /> <br />
+                
+                <button class="btn" type="submit" onclick="window.location.href='#'">Let's Go! 🚀</button>
+
+                <p class="create">
+                <a href="../sign-in page/signin.html">Back to Sign-in</a>
+            </form>
+        </div>
+    </body>
 </html>
