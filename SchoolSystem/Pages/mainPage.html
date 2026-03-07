@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fun Learning Zone</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HOME PAGE -->
+<div id="home">
+
+<header>
+  <h1>Fun Learning Zone!</h1>
+  <p>Learn & play at the same time 🎉</p>
+</header>
+
+<div class="games">
+  <div class="game-card">
+    <img src="https://img.icons8.com/color/96/math.png" alt="Math Game">
+    <h2>Math Fun</h2>
+    <p>Solve puzzles and earn stars!</p>
+  </div>
+
+  <div class="game-card">
+    <img src="https://img.icons8.com/color/96/abc.png" alt="Reading Game">
+    <h2>Reading Adventure</h2>
+    <p>Learn letters & words while exploring!</p>
+  </div>
+
+  <div class="game-card" onclick="openColorGame()">
+    <img src="https://img.icons8.com/color/96/paint-palette.png" alt="Art & Colors">
+    <h2>Art & Colors</h2>
+    <p>Learn to recognize colors!</p>
+  </div>
+</div>
+
+<footer>
+Designed for 1st–2nd graders • HCI Project
+</footer>
+
+</div>
+
+<!-- COLOR GAME PAGE -->
+<div id="colorGame">
+<h1>Color Challenge 🎨</h1>
+<p id="instruction"></p>
+
+<div class="colors" id="colorButtons"></div>
+
+<p id="result"></p>
+<p class="score">Score: <span id="score">0</span></p>
+
+<button class="control" onclick="newRound()">Next Color</button>
+<br>
+<button class="control" onclick="goHome()">Back to Games</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
