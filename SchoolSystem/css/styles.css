@@ -10,6 +10,7 @@ body {
 }
 h1 {
     font-family: Georgia, serif;
+    text-align: center;
 }
 .login {
     width: 90%;
@@ -18,6 +19,7 @@ h1 {
     background: white;
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    
 }
 .login-btn {
     width: 65%;
@@ -46,7 +48,6 @@ h1 {
 .create {
     margin-top: 15px;
     font-size: 13px;
-    color: rgb(0, 0, 0);
 }
 .create a {
     color: #000000;
@@ -56,4 +57,40 @@ input {
     padding: 10px;
     border-radius: 5px;
     border: 1px solid gray;
+}
+.sign-in {
+    width: 90%;
+    max-width: 400px;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    
+}
+.signin-btn {
+    width: 65%;
+    padding: 12px;
+    margin: 15px auto;
+    display: block;
+    border-radius: 40px;
+    border: 2px solid #333;
+    background-color: #c7ded8;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.signin-btn:hover {
+    background-color: #b4d0c9;
+}
+label {
+    display: block;
+    margin-bottom: 4px;
+    text-align: center; 
+}
+.log {
+    text-align: left;
+    font-size: 13px;
+}
+.log a {
+    color: #000000;
 }
