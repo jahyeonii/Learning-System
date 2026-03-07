@@ -1,0 +1,117 @@
+/* General Styles */
+body{
+  font-family:'Comic Sans MS',cursive;
+  margin:0;
+  background:linear-gradient(to bottom,#fff9c4,#ffcdd2);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-height:100vh;
+}
+
+header{
+  text-align:center;
+  padding:2rem;
+}
+
+header h1{
+  color:#6a1b9a;
+  font-size:3rem;
+}
+
+header p{
+  color:#ab47bc;
+}
+
+/* Home Game Cards */
+.games{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1.5rem;
+  width:90%;
+  max-width:900px;
+}
+
+.game-card{
+  background:white;
+  border-radius:20px;
+  padding:1.5rem;
+  text-align:center;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  transition:transform .2s;
+  cursor:pointer;
+}
+
+.game-card:hover{
+  transform:scale(1.05);
+}
+
+.game-card img{
+  width:80px;
+  margin-bottom:1rem;
+}
+
+.game-card h2{
+  color:#6a1b9a;
+}
+
+.game-card p{
+  color:#ab47bc;
+  font-size:.9rem;
+}
+
+/* Footer */
+footer{
+  margin-top:2rem;
+  padding:1rem;
+  color:#6a1b9a;
+}
+
+/* COLOR GAME PAGE */
+#colorGame{
+  display:none;
+  text-align:center;
+}
+
+#instruction{
+  font-size:26px;
+  margin-top:10px;
+}
+
+.colors{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:15px;
+  margin:20px;
+  max-width:500px;
+}
+
+.colorBtn{
+  width:80px;
+  height:80px;
+  border:none;
+  border-radius:15px;
+  cursor:pointer;
+  box-shadow:0 3px 8px rgba(0,0,0,0.2);
+}
+
+#result{
+  font-size:20px;
+  margin-top:10px;
+}
+
+.score{
+  font-size:18px;
+  margin-top:10px;
+}
+
+button.control{
+  margin-top:15px;
+  padding:10px 20px;
+  border:none;
+  border-radius:10px;
+  background:#6a1b9a;
+  color:white;
+  cursor:pointer;
+}
