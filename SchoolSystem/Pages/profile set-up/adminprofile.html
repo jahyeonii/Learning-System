@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>StudyGo - Profile Set-up</title>
+        <link rel="stylesheet" href="../../css/styles.css">
+    </head>
+    <body>
+        <div class="form-box">
+            <form action="" method="post"> 
+                <h1>Admin Profile Set-up</h1>
+                
+                <label for="profile-pic" id="avatarLabel">
+                <div id="avatarCircle">📷</div>
+                <p>Click to upload photo</p>
+                </label>
+                <input type="file" name="profile-pic" id="profile-pic" accept="image/*" style="display:none">
+                <div class="field">
+                <label for="first-name">First Name:</label>
+                <input type="text" name="first-name"  id="first-name" placeholder="Enter your first name here" required>
+                </div>
+                <div class="field">
+                <label for="middle-inital">Middle Initial:</label>
+                <input type="text" name="middle-inital"  id="middle-inital" placeholder="Enter your Middle Initial here" required>
+                </div>
+                <div class="field">
+                <label for="surname">Surname:</label>
+                <input type="text" name="surname"  id="surname" placeholder="Enter your Surname/Family Name here" required>
+                </div>
+                <div class="field">
+                <label for="e-id">Employee ID:</label>
+                <input type="text" name="e-id"  id="e-id" placeholder="e.g 2024-ADMIN-01" required>
+                </div>
+                <div class="field">
+                <label for="phone">Phone Number:</label>
+                <input type="text" name="phone"  id="phone" placeholder="e.g 09XX-XXXX-XXX" required>
+                </div>
+            
+                <button class="btn" type="submit" onclick="window.location.href='#'">Let's Go! 🚀</button>
+
+                <p class="create">
+                <a href="../sign-in page/signin-admin.html">Back to Sign-in</a>
+            </form>
+        </div>
+    </body>
+</html>
