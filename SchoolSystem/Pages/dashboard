@@ -5,15 +5,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="dashboard">
+<nav class="sidebar" aria-label="Main navigation">
     <div class="sidebar">
         <h2>My Dashboard</h2>
         <ul>
-            <li>Home</li>
-            <li>Records</li>
-            <li>Settings</li>
+            <li><a href="">Home</a></li>
+            <li><a href="">Records</a></li>
+            <li><a href="">Settings</a></li>
         </ul>
     </div>
-</div>
+</nav>
 </body>
 </html>
