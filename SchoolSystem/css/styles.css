@@ -9,6 +9,21 @@ body {
     padding: 30px 0;
     box-sizing: border-box;
 }
+.logo{
+   font-size: 20px;
+    font-weight: 600;
+    color: #1D9E75;
+    padding: 0.6rem 1rem;       
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+
+    /* Decorative square box */
+    background-color: #e1f5ee;  
+    border: 2px solid #189b71;  
+    border-radius: 8px;         
+    display: inline-block;
+}
 h1 {
     font-family: Georgia, serif;
     text-align: center;
