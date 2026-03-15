@@ -10,9 +10,10 @@ body {
     box-sizing: border-box;
 }
 .logo{
-   font-size: 20px;
-    font-weight: 600;
+    font-weight: 800;
+    font-size: 17px;
     color: #1D9E75;
+    text-decoration: none;
     padding: 0.6rem 1rem;       
     position: absolute;
     top: 1.5rem;
@@ -20,9 +21,13 @@ body {
 
     /* Decorative square box */
     background-color: #e1f5ee;  
-    border: 2px solid #189b71;  
-    border-radius: 8px;         
+    background: rgba(255, 255, 255, 0.7);
+    border: 1.5px solid var(--green-dark);
+    border-radius: 16px;
     display: inline-block;
+}
+.logo:hover {
+    background: rgba(255, 255, 255, 0.9);
 }
 h1 {
     font-family: Georgia, serif;
