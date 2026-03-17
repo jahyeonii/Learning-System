@@ -181,7 +181,7 @@
 
         <div class="field">
             <label>Student ID:</label>
-            <input type="text" id="s-id" placeholder="e.g 2024-1234-01" required>
+            <input type="text" id="s-id" placeholder="e.g 2026-1234-03" required>
         </div>
 
         <button class="btn" type="submit">Let's Go! 🚀</button>
@@ -194,13 +194,11 @@
 
 <script>
     function goToDashboard(event) {
-        event.preventDefault(); // stop reload
+        event.preventDefault(); 
 
-        // OPTIONAL: save data
         localStorage.setItem("parentName", document.getElementById("parent-first-name").value);
         localStorage.setItem("childName", document.getElementById("child-first-name").value);
 
-        // redirect to dashboard
         window.location.href = "dashboard.html";
     }
 </script>
