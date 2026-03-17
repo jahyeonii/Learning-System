@@ -3,31 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/styles.css">
     <title>StudyGo - Sign-in</title>
+
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body */
+        body {
+            font-family: 'Poppins', 'Comic Sans MS', sans-serif;
+            background: linear-gradient(135deg, #dff6ff, #fff3cd);
+            color: #333;
+        }
+
+        /* Logo */
+        .logo {
+            display: block;
+            text-align: center;
+            font-size: 30px;
+            margin: 20px 0;
+            text-decoration: none;
+            font-weight: bold;
+            color: #ff7f50;
+        }
+
+        /* Form Box */
+        .form-box {
+            width: 350px;
+            margin: auto;
+            padding: 25px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: 3px dashed #ffd966;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #ff7043;
+        }
+
+        /* Role Buttons */
+        .login-role {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .login-role a {
+            flex: 1;
+            text-align: center;
+            padding: 8px;
+            margin: 0 3px;
+            border-radius: 15px;
+            text-decoration: none;
+            background: #eee;
+            color: #333;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .login-role a:hover {
+            background: #6ec1e4;
+            color: white;
+        }
+
+        .login-role .active {
+            background: #4caf50;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Inputs */
+        label {
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 12px;
+            border-radius: 12px;
+            border: 2px solid #ccc;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #6ec1e4;
+            background: #f0fbff;
+            outline: none;
+        }
+
+        /* Button */
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(45deg, #6ec1e4, #4caf50);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            background: linear-gradient(45deg, #4caf50, #6ec1e4);
+        }
+
+        /* Text below */
+        .log {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 14px;
+        }
+
+        .log a {
+            text-decoration: none;
+            color: #ff7043;
+            font-weight: bold;
+        }
+
+        .log a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-4px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .form-box {
+                width: 90%;
+            }
+        }
+    </style>
 </head>
+
 <body>
-   <a href="/Learning-System/landingpage.html" class="logo">StudyGo 🎮</a>
 
-    <div class="form-box">
-        <form action="" method="post">
-                    <h1>Sign-in as</h1>
-                    <div class="login-role">
-                        <a href="../sign-in page/signin.html">Student</a>
-                        <a href="../sign-in page/signin-admin.html" class="active">Admin</a>
-                        <a href="../sign-in page/signin-parent.html">Parent</a>
-                    </div>
-                    <label for="email">E-mail:</label>
-                    <input type="email" name="email"  id="email" placeholder="E-mail" required> <br /> <br />
-                    <label for="password">Password:</label>
-                    <input type="password" name="password" id="password" placeholder="Password" required> <br /> <br />
+<a href="#" class="logo">StudyGo 🎮</a>
 
-                    <button class="btn"  onclick="window.location.href='../profile set-up/adminprofile.html'">Sign-In</button>
-                
-                    <p class="log">
-                        Already Have an Account? <a href="../user log-in page/login-admin.html">Log-in</a>
-                    </p>
-        </form>
-    </div>
+<div class="form-box">
+    <form onsubmit="goToProfile(event)">
+        <h1>Sign-in as</h1>
+
+        <div class="login-role">
+            <a href="#">Student</a>
+            <a href="#" class="active">Admin</a>
+            <a href="#">Parent</a>
+        </div>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" placeholder="E-mail" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Password" required>
+
+        <button class="btn" type="submit">Sign-In</button>
+
+        <p class="log">
+            Already Have an Account? <a href="#">Log-in</a>
+        </p>
+    </form>
+</div>
+
+<script>
+    function goToProfile(event) {
+        event.preventDefault(); // stop reload
+
+        // optional: save email
+        localStorage.setItem("userEmail", document.getElementById("email").value);
+
+        // redirect
+        window.location.href = "adminprofile.html";
+    }
+</script>
+
 </body>
 </html>
