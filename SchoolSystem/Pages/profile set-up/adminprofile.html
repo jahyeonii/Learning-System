@@ -137,22 +137,5 @@
         </p>
     </form>
 </div>
-
-<script>
-    const input = document.getElementById('profile-pic');
-    const avatar = document.getElementById('avatarCircle');
-
-    input.addEventListener('change', function() {
-        const file = this.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                avatar.innerHTML = `<img src="${e.target.result}" alt="Profile Picture">`;
-            }
-            reader.readAsDataURL(file);
-        }
-    });
-</script>
-
 </body>
 </html>
