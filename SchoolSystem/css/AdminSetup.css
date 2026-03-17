@@ -1,18 +1,15 @@
-/* Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body */
 body {
     font-family: 'Comic Sans MS', 'Poppins', sans-serif;
     background: linear-gradient(135deg, #fdf6ec, #dff6ff);
     color: #333;
 }
 
-/* Logo */
 .logo {
     display: block;
     text-align: center;
@@ -23,7 +20,6 @@ body {
     color: #ff7f50;
 }
 
-/* Form Container */
 .form-box {
     width: 360px;
     margin: auto;
@@ -34,14 +30,12 @@ body {
     border: 3px dashed #ffd966;
 }
 
-/* Title */
 h1 {
     text-align: center;
     margin-bottom: 15px;
     color: #ff7f50;
 }
 
-/* Avatar Upload */
 #avatarLabel {
     display: block;
     text-align: center;
@@ -74,7 +68,6 @@ h1 {
     object-fit: cover;
 }
 
-/* Form Fields */
 .field {
     margin-bottom: 12px;
 }
@@ -95,14 +88,12 @@ h1 {
     transition: 0.3s;
 }
 
-/* Input focus effect */
 .field input:focus {
     border-color: #6ec1e4;
     outline: none;
     background: #f0fbff;
 }
 
-/* Button */
 .btn {
     width: 100%;
     padding: 12px;
@@ -115,13 +106,11 @@ h1 {
     transition: 0.3s;
 }
 
-/* Button hover */
 .btn:hover {
     transform: scale(1.05);
     background: linear-gradient(45deg, #4caf50, #6ec1e4);
 }
 
-/* Back link */
 .create {
     text-align: center;
     margin-top: 10px;
@@ -137,7 +126,6 @@ h1 {
     text-decoration: underline;
 }
 
-/* Fun floating animation (optional ✨) */
 @keyframes float {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-5px); }
