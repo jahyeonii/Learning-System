@@ -1,1 +1,149 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/* Body */
+body {
+    font-family: 'Comic Sans MS', 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fdf6ec, #dff6ff);
+    color: #333;
+}
+
+/* Logo */
+.logo {
+    display: block;
+    text-align: center;
+    font-size: 28px;
+    margin: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #ff7f50;
+}
+
+/* Form Container */
+.form-box {
+    width: 360px;
+    margin: auto;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border: 3px dashed #ffd966;
+}
+
+/* Title */
+h1 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #ff7f50;
+}
+
+/* Avatar Upload */
+#avatarLabel {
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+#avatarCircle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #ffe4e1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    font-size: 32px;
+    border: 3px solid #ffb6c1;
+    transition: 0.3s;
+}
+
+#avatarCircle:hover {
+    transform: scale(1.1);
+    background: #fff0f5;
+}
+
+#avatarCircle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Form Fields */
+.field {
+    margin-bottom: 12px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #555;
+}
+
+.field input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+    border: 2px solid #d3d3d3;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+/* Input focus effect */
+.field input:focus {
+    border-color: #6ec1e4;
+    outline: none;
+    background: #f0fbff;
+}
+
+/* Button */
+.btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, #6ec1e4, #4caf50);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Button hover */
+.btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #4caf50, #6ec1e4);
+}
+
+/* Back link */
+.create {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.create a {
+    text-decoration: none;
+    color: #ff7f50;
+    font-weight: bold;
+}
+
+.create a:hover {
+    text-decoration: underline;
+}
+
+/* Fun floating animation (optional ✨) */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+.form-box {
+    animation: float 3s ease-in-out infinite;
+}
