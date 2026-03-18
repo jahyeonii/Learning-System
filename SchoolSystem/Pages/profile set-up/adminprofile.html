@@ -1,49 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>StudyGo - Profile Set-up</title>
-        <link rel="stylesheet" href="../../css/styles.css">
-    </head>
-    <body>
-         <a href="/Learning-System/landingpage.html" class="logo">StudyGo 🎮</a>
-         
-        <div class="form-box">
-            <form action="" method="post"> 
-                <h1>Admin Profile Set-up</h1>
-                
-                <label for="profile-pic" id="avatarLabel">
-                <div id="avatarCircle">📷</div>
-                <p>Click to upload photo</p>
-                </label>
-                <input type="file" name="profile-pic" id="profile-pic" accept="image/*" style="display:none">
-                <div class="field">
-                <label for="first-name">First Name:</label>
-                <input type="text" name="first-name"  id="first-name" placeholder="Enter your first name here" required>
-                </div>
-                <div class="field">
-                <label for="middle-inital">Middle Initial:</label>
-                <input type="text" name="middle-inital"  id="middle-inital" placeholder="Enter your Middle Initial here" required>
-                </div>
-                <div class="field">
-                <label for="surname">Surname:</label>
-                <input type="text" name="surname"  id="surname" placeholder="Enter your Surname/Family Name here" required>
-                </div>
-                <div class="field">
-                <label for="e-id">Employee ID:</label>
-                <input type="text" name="e-id"  id="e-id" placeholder="e.g 2024-ADMIN-01" required>
-                </div>
-                <div class="field">
-                <label for="phone">Phone Number:</label>
-                <input type="text" name="phone"  id="phone" placeholder="e.g 09XX-XXXX-XXX" required>
-                </div>
-            
-                <button class="btn" type="submit" onclick="window.location.href='#'">Let's Go! 🚀</button>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyGo - Profile Set-up</title>
+    <link rel="stylesheet" href="../../css/styles.css">
 
-                <p class="create">
-                <a href="../sign-in page/signin-admin.html">Back to Sign-in</a>
-            </form>
+    <style>
+        body {
+            font-family: 'Poppins', 'Comic Sans MS', sans-serif;
+            background: linear-gradient(135deg, #dff6ff, #fff3cd);
+            color: #333;
+        }
+
+        .logo {
+            display: block;
+            text-align: center;
+            font-size: 30px;
+            margin: 20px 0;
+            text-decoration: none;
+            font-weight: bold;
+            color: #ff7f50;
+        }
+
+        .form-box {
+            width: 350px;
+            margin: auto;
+            padding: 25px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border: 3px dashed #ffd966;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .field {
+            margin-bottom: 15px;
+        }
+
+        .field label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .field input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        #avatarLabel {
+            display: block;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        #avatarCircle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+            font-size: 30px;
+            overflow: hidden;
+        }
+
+        #avatarCircle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #45a049;
+        }
+
+        .create {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<a href="/Learning-System/landingpage.html" class="logo">StudyGo 🎮</a>
+
+<div class="form-box">
+    <form action="" method="post"> 
+        <h1>Admin Profile Set-up</h1>
+
+        <div class="field">
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" placeholder="Enter your first name" required>
         </div>
-    </body>
+
+        <div class="field">
+            <label for="middle-initial">Middle Initial:</label>
+            <input type="text" id="middle-initial" placeholder="Enter your middle initial" required>
+        </div>
+
+        <div class="field">
+            <label for="surname">Surname:</label>
+            <input type="text" id="surname" placeholder="Enter your surname" required>
+        </div>
+
+        <div class="field">
+            <label for="e-id">Employee ID:</label>
+            <input type="text" id="e-id" placeholder="e.g. 2024-ADMIN-01" required>
+        </div>
+
+        <div class="field">
+            <label for="phone">Phone Number:</label>
+            <input type="text" id="phone" placeholder="e.g. 09XX-XXXX-XXX" required>
+        </div>
+
+        <button class="btn" type="submit">Let's Go! 🚀</button>
+
+        <p class="create">
+            <a href="../sign-in page/signin-admin.html">Back to Sign-in</a>
+        </p>
+    </form>
+</div>
+</body>
 </html>
