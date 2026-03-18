@@ -5,30 +5,32 @@
 }
 
 body {
-    font-family: 'Comic Sans MS', 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #fdf6ec, #dff6ff);
+    font-family: 'Poppins', 'Comic Sans MS', sans-serif;
+    background: linear-gradient(135deg, #dff6ff, #fff3cd);
     color: #333;
 }
 
 .logo {
     display: block;
     text-align: center;
-    font-size: 28px;
-    margin: 20px;
+    font-size: 30px;
+    margin: 20px 0;
     text-decoration: none;
     font-weight: bold;
     color: #ff7f50;
 }
 
 .form-box {
-    width: 360px;
+    width: 350px;
     margin: auto;
     padding: 25px;
     background: #ffffff;
     border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     border: 3px dashed #ffd966;
+    animation: float 4s ease-in-out infinite;
 }
+
 
 h1 {
     text-align: center;
