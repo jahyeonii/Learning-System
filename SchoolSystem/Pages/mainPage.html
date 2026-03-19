@@ -4,58 +4,102 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fun Learning Zone</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="/SchoolSystem/css/reading.css">
 </head>
 <body>
 
-<!-- HOME PAGE -->
-<div id="home">
+<!-- NAVBAR -->
+<nav class="ra-nav">
+    <a href="#" class="ra-logo">StudyGo</a>
+    <div class="ra-nav-center">Learn & Play </div>
+</nav>
 
-<header>
-  <h1>Fun Learning Zone!</h1>
-  <p>Learn & play at the same time 🎉</p>
-</header>
+<!-- HERO SECTION -->
+<section class="ra-hero">
+    <div class="ra-hero-content">
+        <span class="ra-hero-badge">Welcome</span>
+        <h1>StudyGO Fun Learning Zone!</h1>
+        <p>Learn & play at the same time </p>
+    </div>
+    <div class="ra-hero-art">🧩</div>
+</section>
 
-<div class="games">
-  <div class="game-card">
-    <img src="https://img.icons8.com/color/96/math.png" alt="Math Game">
-    <h2>Math Fun</h2>
-    <p>Solve puzzles and earn stars!</p>
-  </div>
+<!-- MAIN CONTENT -->
+<main class="ra-main">
 
-  <div class="game-card">
-    <img src="https://img.icons8.com/color/96/abc.png" alt="Reading Game">
-    <h2>Reading Adventure</h2>
-    <p>Learn letters & words while exploring!</p>
-  </div>
+    <!-- GAMES SECTION -->
+    <section>
+        <div class="ra-section-header">
+            <div class="ra-section-icon">🎮</div>
+            <h2>Games</h2>
+        </div>
 
-  <div class="game-card" onclick="openColorGame()">
-    <img src="https://img.icons8.com/color/96/paint-palette.png" alt="Art & Colors">
-    <h2>Art & Colors</h2>
-    <p>Learn to recognize colors!</p>
-  </div>
-</div>
+        <div class="ra-cards">
+            <!-- Math Fun -->
+            <a href="../Pages/Math lesson/math.html" class="ra-card ra-card--yellow">
+                <div class="ra-card-top">
+                    <div class="ra-card-emoji">➕</div>
+                    <span class="ra-card-level ra-level--easy">Easy</span>
+                </div>
+                <h3>Math Fun</h3>
+                <p>Solve puzzles and earn stars!</p>
+                <div class="ra-card-footer">  
+                    <span>1st–2nd graders</span>
+                    <span>🎯</span>
+                </div>
+            </a>
 
-<footer>
-Designed for 1st–2nd graders • HCI Project
-</footer>
+            <!-- Reading Adventure -->
+            <a href="../Pages/reading adventure/reading-adventure.html" class="ra-card ra-card--blue">
+                <div class="ra-card-top">
+                    <div class="ra-card-emoji">📚</div>
+                    <span class="ra-card-level ra-level--medium">Medium</span>
+                </div>
+                <h3>Reading Adventure</h3>
+                <p>Learn letters & words while exploring!</p>
+                <div class="ra-card-footer">
+                    <span>1st–2nd graders</span>
+                    <span>📖</span>
+                </div>
+            </a>
 
-</div>
+            <!-- Art & Colors -->
+            <a href="#" class="ra-card ra-card--pink" onclick="openColorGame()">
+                <div class="ra-card-top">
+                    <div class="ra-card-emoji">🎨</div>
+                    <span class="ra-card-level ra-level--easy">Easy</span>
+                </div>
+                <h3>Art & Colors</h3>
+                <p>Learn to recognize colors!</p>
+                <div class="ra-card-footer">
+                    <span>1st–2nd graders</span>
+                    <span>🌈</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+</main>
 
 <!-- COLOR GAME PAGE -->
-<div id="colorGame">
-<h1>Color Challenge 🎨</h1>
-<p id="instruction"></p>
+<div id="colorGame" style="display:none;">
+    <h1>Color Challenge 🎨</h1>
+    <p id="instruction"></p>
 
-<div class="colors" id="colorButtons"></div>
+    <div class="colors" id="colorButtons"></div>
 
-<p id="result"></p>
-<p class="score">Score: <span id="score">0</span></p>
+    <p id="result"></p>
+    <p class="score">Score: <span id="score">0</span></p>
 
-<button class="control" onclick="newRound()">Next Color</button>
-<br>
-<button class="control" onclick="goHome()">Back to Games</button>
+    <button class="control" onclick="newRound()">Next Color</button>
+    <br>
+    <button class="control" onclick="goHome()">Back to Games</button>
 </div>
+
+<!-- FOOTER -->
+<footer class="ra-footer">
+    Designed for 1st–2nd graders • HCI Project
+</footer>
 
 <script src="script.js"></script>
 </body>
