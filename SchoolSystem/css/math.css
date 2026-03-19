@@ -10,7 +10,6 @@ body {
     color: #333;
 }
 
-/* Logo */
 .logo {
     display: block;
     text-align: center;
@@ -21,7 +20,6 @@ body {
     color: #ff7f50;
 }
 
-/* Card */
 .form-box {
     width: 420px;
     margin: auto;
@@ -39,7 +37,6 @@ h1 {
     color: #ff7043;
 }
 
-/* MENU (CENTERED BUTTONS) */
 .menu {
     display: flex;
     flex-wrap: wrap;
@@ -71,7 +68,6 @@ h1 {
     background: linear-gradient(45deg, #4caf50, #6ec1e4);
 }
 
-/* Game Info */
 #level, #score, #correctWrong {
     font-size: 16px;
     margin: 8px 0;
@@ -79,7 +75,6 @@ h1 {
     text-align: center;
 }
 
-/* Question */
 #question {
     font-size: 20px;
     margin: 15px 0;
@@ -90,7 +85,6 @@ h1 {
     text-align: center;
 }
 
-/* Options */
 .options {
     display: flex;
     flex-wrap: wrap;
@@ -108,7 +102,6 @@ h1 {
     color: white;
 }
 
-/* Change button */
 #changeLesson {
     margin-top: 10px;
     width: 100%;
@@ -120,13 +113,10 @@ h1 {
     cursor: pointer;
 }
 
-/* Hidden */
 .hidden {
     display: none;
 }
 
-
-/* Responsive */
 @media (max-width: 480px) {
     .form-box {
         width: 90%;
