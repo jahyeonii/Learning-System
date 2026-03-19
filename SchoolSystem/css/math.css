@@ -1,77 +1,127 @@
-body {
-  margin: 0;
-  font-family: 'Comic Neue', cursive;
-  background: linear-gradient(135deg, #FFDEE9, #B5FFFC, #FFE5F0, #C8FFD4);
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.container {
-  background: rgba(255,255,255,0.95);
-  padding: 25px;
-  border-radius: 25px;
-  text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-  width: 370px;
-  position: relative;
+body {
+    font-family: 'Poppins', 'Comic Sans MS', sans-serif;
+    background: linear-gradient(135deg, #e3f2fd, #fff8e1);
+    color: #333;
+}
+
+
+.logo {
+    display: block;
+    text-align: center;
+    font-size: 28px;
+    margin: 20px 0;
+    text-decoration: none;
+    font-weight: bold;
+    color: #ff7f50;
+}
+
+.form-box {
+    width: 420px;
+    margin: auto;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border: 3px dashed #ffd966;
+    animation: float 4s ease-in-out infinite;
 }
 
 h1 {
-  color: #FF4500;
-  margin-bottom: 15px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #ff7043;
 }
 
-.menu button, .options button, #changeLesson {
-  background-color: #FF69B4;
-  border: none;
-  padding: 10px 18px;
-  margin: 5px;
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 16px;
-  color: white;
-  transition: transform 0.2s, background-color 0.2s;
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
-.menu button:hover, .options button:hover, #changeLesson:hover {
-  transform: scale(1.1);
-  background-color: #FF1493;
+.menu p {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
-.hidden { display: none; }
+.menu button {
+    width: 45%;
+    background: linear-gradient(45deg, #6ec1e4, #4caf50);
+    border: none;
+    padding: 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 15px;
+    color: white;
+    transition: 0.3s;
+}
+
+.menu button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #4caf50, #6ec1e4);
+}
 
 #level, #score, #correctWrong {
-  font-size: 18px;
-  margin: 8px 0;
-  font-weight: bold;
+    font-size: 16px;
+    margin: 8px 0;
+    font-weight: bold;
+    text-align: center;
 }
 
 #question {
-  font-size: 20px;
-  margin: 15px 0;
-  padding: 15px;
-  border-radius: 15px;
-  background: linear-gradient(120deg, #FFD3B6, #FFAAA5);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    font-size: 20px;
+    margin: 15px 0;
+    padding: 15px;
+    border-radius: 15px;
+    background: linear-gradient(120deg, #ffe0b2, #ffccbc);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .options button {
-  width: 45%;
+    width: 48%;
+    margin-top: 8px;
+    background: linear-gradient(45deg, #6ec1e4, #4caf50);
+    border: none;
+    padding: 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: white;
 }
 
-.star, .wrong {
-  position: absolute;
-  font-size: 24px;
-  animation: floatUp 1s ease-out forwards;
+#changeLesson {
+    margin-top: 10px;
+    width: 100%;
+    background: linear-gradient(45deg, #ff7043, #ffb74d);
+    border: none;
+    padding: 12px;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
 }
 
-.star { color: gold; }
-.wrong { color: red; }
+.hidden {
+    display: none;
+}
 
-@keyframes floatUp {
-  0% { opacity:1; transform: translateY(0) scale(1); }
-  100% { opacity:0; transform: translateY(-100px) scale(1.5); }
+
+@media (max-width: 480px) {
+    .form-box {
+        width: 90%;
+        padding: 20px;
+    }
 }
