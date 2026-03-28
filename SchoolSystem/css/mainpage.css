@@ -1,1 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: 'Poppins', 'Comic Sans MS', sans-serif;
+    background: linear-gradient(135deg, #e3f2fd, #fff8e1);
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 220px;
+    background: #fff;
+    border-right: 3px dashed #ffd966;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    text-align: center;
+    color: #ff7043;
+    margin-bottom: 20px;
+}
+
+.sidebar a {
+    display: block;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #555;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background: linear-gradient(45deg, #6ec1e4, #4caf50);
+    color: white;
+}
+
+.main {
+    flex: 1;
+    text-align: center;
+}
+
+header {
+    margin: 20px 0;
+}
+
+header h1 {
+    color: #ff7043;
+}
+
+header p {
+    color: #4caf50;
+}
+
+.games {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.game-card {
+    width: 220px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    border: 3px dashed #ffd966;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    text-decoration: none;
+    width: 220px;       
+    height: 230px;     
+}
+
+.game-card img {
+    width: 80px;
+}
+
+.game-card h2 {
+    color: #ff7043;
+}
+
+.game-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+.game-card:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 14px;
+    color: #777;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        text-align: center;
+    }
+
+    .sidebar a {
+        display: inline-block;
+        margin: 5px;
+    }
+}
