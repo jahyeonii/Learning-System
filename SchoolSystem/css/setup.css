@@ -1,1 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', 'Comic Sans MS', sans-serif;
+    background: linear-gradient(135deg, #e3f2fd, #fff8e1);
+    color: #333;
+}
+
+.logo {
+    display: block;
+    text-align: center;
+    font-size: 28px;
+    margin: 20px 0;
+    text-decoration: none;
+    font-weight: bold;
+    color: #ff7f50;
+}
+
+.form-box {
+    width: 420px;
+    margin: auto;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border: 3px dashed #ffd966;
+    animation: float 4s ease-in-out infinite;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #ff7043;
+}
+
+h4 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #4caf50;
+    border-left: 5px solid #4caf50;
+    padding-left: 8px;
+}
+
+.field {
+    margin-bottom: 12px;
+}
+
+.field label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.field input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+    border: 2px solid #ccc;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.field input:focus {
+    border-color: #6ec1e4;
+    background: #f0fbff;
+    outline: none;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, #6ec1e4, #4caf50);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #4caf50, #6ec1e4);
+}
+
+.create {
+    text-align: center;
+    margin-top: 12px;
+}
+
+.create a {
+    text-decoration: none;
+    color: #ff7043;
+    font-weight: bold;
+}
+
+.create a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .form-box {
+        width: 90%;
+        padding: 20px;
+    }
+}
 
