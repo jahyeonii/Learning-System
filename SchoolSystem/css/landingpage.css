@@ -7,13 +7,8 @@ body {
     background: linear-gradient(135deg, #e3f2fd, #fff8e1);
     color: #333;
     align-items: center;
-    /* background-size: 1550px 2500px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-image: url(brainrot.jpg.jpg); */
 }
 
-/* NAVBAR */
 nav {
     display: flex;
     justify-content: space-between;
@@ -59,7 +54,6 @@ nav {
     transform: scale(1.05);
 }
 
-/* HERO */
 .hero {
     text-align: center;
     padding: 50px 20px;
@@ -79,7 +73,6 @@ nav {
     max-width: 500px;
 }
 
-/* BUTTONS */
 .btn-primary,
 .btn-secondary {
     padding: 12px 22px;
@@ -106,7 +99,6 @@ nav {
     transform: scale(1.05);
 }
 
-/* XP BAR */
 .xp-demo {
     margin-top: 20px;
 }
@@ -126,7 +118,6 @@ nav {
     background: linear-gradient(45deg, #6ec1e4, #4caf50);
 }
 
-/* CARDS (IMPORTANT PART) */
 .stat-card,
 .feature-card,
 .step {
@@ -145,7 +136,6 @@ nav {
     transform: scale(1.05);
 }
 
-/* STATS */
 .stats {
     display: flex;
     justify-content: center;
@@ -167,7 +157,6 @@ h2{
     color: #4caf50;
 }
 
-/* FEATURES */
 .features-grid {
     display: flex;
     flex-wrap: wrap;
@@ -186,7 +175,6 @@ h2{
     margin-bottom: 10px;
 }
 
-/* STEPS */
 .steps {
     display: flex;
     gap: 20px;
@@ -206,7 +194,6 @@ h2{
     margin-bottom: 10px;
 }
 
-/* SECTION */
 .section {
     text-align: center;
     padding: 50px 20px;
@@ -218,13 +205,11 @@ h2{
     margin-bottom: 10px;
 }
 
-/* CTA */
 .cta-section {
     text-align: center;
     padding: 50px 20px;
 }
 
-/* FOOTER */
 footer {
     text-align: center;
     padding: 20px;
