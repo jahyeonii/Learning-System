@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Masterlist</title>
+  <link rel="stylesheet" href="../css/Masterlist.css">
+</head>
+<body>
+
+<h2>Student Master List</h2>
+
+<!-- Add Student Form -->
+<div>
+  <input id="studentId" placeholder="Student ID">
+  <input id="name" placeholder="Name">
+  <input id="section" placeholder="Grade/Section">
+  <input id="email" placeholder="Email">
+  <input id="xp" type="number" placeholder="XP / Level">
+  <select id="status">
+    <option value="Active">Active</option>
+    <option value="Inactive">Inactive</option>
+  </select>
+  <button onclick="addStudent()">Add Student</button>
+</div>
+
+<br>
+
+<button onclick="exportCSV()">📤 Export CSV</button>
+
+<br><br>
+
+<table border="1" width="100%">
+  <thead>
+    <tr>
+      <th>Student ID</th>
+      <th>Name</th>
+      <th>Grade/Section</th>
+      <th>Email</th>
+      <th>XP / Level</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody id="studentTable"></tbody>
+</table>
+
+<script src="../java/masterlist.js"></script>
+
+</body>
+</html>
