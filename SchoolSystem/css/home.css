@@ -1,0 +1,257 @@
+body {
+    font-family: 'Poppins', 'Comic Sans MS', sans-serif;
+    background: linear-gradient(135deg, #e3f2fd, #fff8e1);
+    color: #333;
+    align-items: center;
+    background-size: 1530px 850px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(brainrot.jpg.jpg);
+}
+
+h1 {
+    text-align: center;
+    color: #ff7043;
+}
+
+a {
+    text-decoration: none;
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5%;
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+    background: linear-gradient(to left, #6ec1e4, #4caf50);
+    padding: 10px 0;
+    
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.bottom-nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.bottom-nav a:hover {
+   transform: scale(1.2);
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #ff7043;
+    text-decoration: none;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 260px;
+    height: 100%;
+
+    background: linear-gradient(180deg, #6ec1e4, #4caf50);
+    padding-top: 30px;
+
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+
+    box-shadow: 5px 0 20px rgba(0,0,0,0.2);
+    transition: 0.4s ease;
+
+    z-index: 2000;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar h2 {
+    text-align: center;
+    color: #ff7043;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.sidebar a {
+    display: block;
+    margin: 10px 15px;
+    padding: 12px;
+
+    border-radius: 15px;
+    text-decoration: none;
+
+    color: #ff7043;
+    font-size: 16px;
+
+    background: rgba(255,255,255,0.15);
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    transform: scale(1.05);
+}
+
+.sidebar a:last-child {
+    background: rgba(255, 255, 255, 0.25);
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 998;
+}
+
+.overlay.active {
+    display: block;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; 
+    width: 250px;
+    height: 100%;
+    background-color: #4caf50;
+    padding-top: 60px;
+    transition: 0.3s;
+    z-index: 2000;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    padding: 15px;
+    font-size: 20px;
+}
+
+.sidebar a:hover {
+    background-color: #388e3c;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.stars-badge {
+    background: #fff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 2px dashed #ffc107;
+    font-weight: bold;
+}
+
+.profile {
+    width: 320px;
+    margin: 40px auto;
+    background: linear-gradient(135deg, #e3f2fd, #fff8e1);
+    border-radius: 25px;
+    padding: 30px 20px;
+    border: 3px dashed #ffc107;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    align-items: flex-start;
+
+}
+
+.small-img {
+    width: 280px;
+    height: 200px;
+}
+
+img {
+    max-width: 100%;
+    height: 200;
+}
+
+.avatar {
+    width: 110px;
+    height: 110px;
+    background: #ddd;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.username {
+    color: #ff6f4c;
+    margin: 15px 0 5px;
+    text-align: center;
+}
+
+.stars {
+    color: #ff9800;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.level {
+    color: #4caf50;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.progress {
+    background: #eee;
+    border-radius: 20px;
+    height: 14px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(to right, #4caf50, #64b5f6);
+}
+
+.play-btn {
+    display: block;
+    margin: 15px auto; 
+    padding: 14px 50px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(to right, #4caf50, #64b5f6);
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.play-btn:hover {
+    transform: scale(1.05);
+}
+
+.nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(to right, #4caf50, #64b5f6);
+    display: flex;
+    justify-content: space-around;
+    padding: 12px 0;
+}
