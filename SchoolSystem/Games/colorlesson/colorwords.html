@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Recognize Color</title>
+    <link rel="stylesheet" href="../SchoolSystem/css/colorlesson.css">
+    </head>
+<body>
+
+    <div class="logo">🎨 Color Game</div>
+
+    <div class="form-box">
+        <h1>Find the Color!</h1>
+
+        <div id="question"></div>
+        <div class="options" id="options"></div>
+
+        <div id="result"></div>
+        <div id="score">⭐ Score: 0</div>
+    </div>
+
+<script>
+    let score = 0;
+
+let questions = [
+    {q: "What is the color of the sun?", a: "yellow"},
+    {q: "What is the color of the sky?", a: "blue"},
+    {q: "What is the color of grass?", a: "green"},
+    {q: "What is the color of apple?", a: "red"}
+];
+
+let colors = ["red","blue","yellow","green"];
+
+function newQuestion() {
+    let q = questions[Math.floor(Math.random() * questions.length)];
+
+    document.getElementById("question").innerText = q.q;
+
+    let choices = [...colors].sort(() => Math.random() - 0.5);
+
+    let html = "";
+    choices.forEach(c => {
+        html += `<button style="background:${c}" onclick="check('${c}','${q.a}')"></button>`;
+    });
+
+    document.getElementById("options").innerHTML = html;
+}
+
+function check(ans, correct) {
+    if (ans === correct) {
+        score++;
+        document.getElementById("result").innerText = "✅ Nice!";
+    } else {
+        document.getElementById("result").innerText = "❌ Oops!";
+    }
+
+    document.getElementById("score").innerText = "⭐ Score: " + score;
+    setTimeout(newQuestion, 800);
+}
+
+newQuestion();
+</script>
+
+</body>
+</html>
