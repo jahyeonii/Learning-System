@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Words</title>
+  <link rel="stylesheet" href="../SchoolSystem/css/readinglesson.css">
+</head>
+<body>
+
+<div class="logo">📖 Simple Words</div>
+
+<div class="form-box">
+    <h1>Read and Answer</h1>
+
+    <div id="question"></div>
+    <div class="options" id="options"></div>
+
+    <div id="result"></div>
+    <div id="score">⭐ Score: 0</div>
+</div>
+
+<div class="spacer"></div>
+
+<script>
+let score = 0;
+let current = 0;
+
+let questions = [
+    {
+        text:"John has a cat.",
+        q:"What does John have?",
+        answer:"Cat",
+        choices:["Cat","Dog","Bird","Fish"]
+    },
+    {
+        text:"Anna lost her wallet.",
+        q:"What did Anna lost?",
+        answer:"wallet",
+        choices:["Money","Wallet","Bag","Pen"]
+    },
+    {
+        text:"Tom likes to play basketball.",
+        q:"What does Tom likes to play?",
+        answer:"Basketball",
+        choices:["Volleyball","Tennis","Basketball","Baseball"]
+    },
+    {
+        text:"Lisa forgot her assignment in her house.",
+        q:"What does Lisa forgot?",
+        answer:"Her Assignment",
+        choices:["Her Glasses","Her Book","Her Pen","Her Assignment"]
+    },
+    {
+        text:"Mark hate to eat vegetables.",
+        q:"What does Mark hate to eat?",
+        answer:"Black",
+        choices:["Fruits","Vegetables","Fish","Candy"]
+    }
+];
+
+function newQuestion() {
+    let q = questions[current];
+
+    document.getElementById("question").innerText =
+        q.text + "\n\n" + q.q;
+
+    let shuffled = q.choices.sort(() => Math.random() - 0.5);
+
+    let html = "";
+    shuffled.forEach(c => {
+        html += `<button onclick="check('${c}', '${q.answer}')">${c}</button>`;
+    });
+
+    document.getElementById("options").innerHTML = html;
+}
+
+function check(ans, correct) {
+    if (ans === correct) {
+        score++;
+        document.getElementById("result").innerText = "✅ Yay! Correct!";
+        current = (current + 1) % questions.length;
+    } else {
+        document.getElementById("result").innerText = "❌ Try again!";
+    }
+
+    document.getElementById("score").innerText = "⭐ Score: " + score;
+
+    setTimeout(newQuestion, 1000);
+}
+
+newQuestion();
+</script>
+
+</body>
+</html>
