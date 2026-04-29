@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Poppins', 'Comic Sans MS', sans-serif;
+    font-family: 'Comic Sans MS', 'Poppins', sans-serif;
     background: linear-gradient(135deg, #e3f2fd, #fff8e1);
     min-height: 100vh;
     display: flex;
@@ -19,58 +19,75 @@ body {
 
 .logo {
     font-size: 28px;
-    margin: 20px;
     font-weight: bold;
     color: #ff7043;
+    margin-top: 20px;
+    text-align: center;
 }
 
 .form-box {
-    width: 420px;
-    max-width: 90%;
-    padding: 25px;
+    width: 90%;
+    max-width: 400px;
+    margin-top: 20px;
+    padding: 20px;
     background: linear-gradient(135deg, #e3f2fd, #fff8e1);
     border-radius: 20px;
     border: 3px dashed #ffd966;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 h1 {
     text-align: center;
     color: #ff7043;
+    font-size: 24px;
 }
 
 #question {
-    font-size: 22px;
+    font-size: 26px;
     text-align: center;
     margin: 20px 0;
     padding: 15px;
     border-radius: 15px;
     background: #ff7043;
-    color: black;
+    border: 4px solid #f04f1e;
 }
 
 .options {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .options button {
-    width: 80px;
-    height: 80px;
-    border-radius: 15px;
+    font-size: 22px;
+    padding: 15px;
     border: none;
+    border-radius: 15px;
     cursor: pointer;
-    transition: 0.2s;
+    background: linear-gradient(45deg, #6ec1e4, #4caf50);
+    color: black;
+    transition: 0.2s ease;
+    color: white;
 }
 
 .options button:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #4caf50, #6ec1e4);
 }
 
-#result, #score {
+#score, #result {
     text-align: center;
     margin-top: 10px;
+    font-size: 18px;
     font-weight: bold;
+}
+
+.spacer {
+    height: 120px; 
+}
+
+@media (max-width: 480px) {
+    .form-box {
+        width: 95%;
+    }
 }
