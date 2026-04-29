@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ABC Game</title>
+  <link rel="stylesheet" href="../SchoolSystem/css/readinglesson.css">
+</head>
+<body>
+
+<div class="logo">🔤 Alphabet</div>
+
+<div class="form-box">
+    <h1>Pronounce the Letter</h1>
+
+    <div id="question"></div>
+    <div class="options" id="options"></div>
+
+    <div id="result"></div>
+    <div id="score">⭐ Score: 0</div>
+</div>
+
+<div class="spacer"></div>
+
+<script>
+let score = 0;
+let current = 0;
+
+let alphabet = [
+    {letter:"A", sound:"ey"},
+    {letter:"B", sound:"bi"},
+    {letter:"C", sound:"si"},
+    {letter:"D", sound:"di"},
+    {letter:"E", sound:"ee"},
+    {letter:"F", sound:"ef"},
+    {letter:"G", sound:"ji"},
+    {letter:"H", sound:"eych"},
+    {letter:"I", sound:"ay"},
+    {letter:"J", sound:"jey"},
+    {letter:"K", sound:"key"},
+    {letter:"L", sound:"el"},
+    {letter:"M", sound:"em"},
+    {letter:"N", sound:"en"},
+    {letter:"O", sound:"oh"},
+    {letter:"P", sound:"pi"},
+    {letter:"Q", sound:"cue"},
+    {letter:"R", sound:"ar"},
+    {letter:"S", sound:"es"},
+    {letter:"T", sound:"ti"},
+    {letter:"U", sound:"yu"},
+    {letter:"V", sound:"vi"},
+    {letter:"W", sound:"dobolyu"},
+    {letter:"X", sound:"ex"},
+    {letter:"Y", sound:"way"},
+    {letter:"Z", sound:"zi"}
+];
+
+function newQuestion() {
+    let q = alphabet[current];
+
+    document.getElementById("question").innerText =
+        `How do you pronounce letter "${q.letter}"?`;
+
+    let allSounds = alphabet.map(a => a.sound);
+    let choices = [q.sound];
+
+    while (choices.length < 4) {
+        let rand = allSounds[Math.floor(Math.random() * allSounds.length)];
+        if (!choices.includes(rand)) {
+            choices.push(rand);
+        }
+    }
+
+    choices.sort(() => Math.random() - 0.5);
+
+    let html = "";
+    choices.forEach(c => {
+        html += `<button onclick="check('${c}', '${q.sound}')">${c}</button>`;
+    });
+
+    document.getElementById("options").innerHTML = html;
+}
+
+function check(ans, correct) {
+    if (ans === correct) {
+        score++;
+        document.getElementById("result").innerText = "✅ Yay! Correct!";
+        current = (current + 1) % alphabet.length;
+    } else {
+        document.getElementById("result").innerText = "❌ Try again!";
+    }
+
+    document.getElementById("score").innerText = "⭐ Score: " + score;
+
+    setTimeout(newQuestion, 800);
+}
+
+newQuestion();
+</script>
+
+</body>
+</html>
