@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Numbers Game</title>
+  <link rel="stylesheet" href="../SchoolSystem/css/readinglesson.css">
+</head>
+<body>
+
+<div class="logo">🔢 Numbers</div>
+
+<div class="form-box">
+    <h1>Find the Number</h1>
+
+    <div id="question"></div>
+    <div class="options" id="options"></div>
+
+    <div id="result"></div>
+    <div id="score">⭐ Score: 0</div>
+</div>
+
+<div class="spacer"></div>
+
+<script>
+let score = 0;
+let current = 0;
+
+let numbers = [
+    {word:"one", num:1},
+    {word:"two", num:2},
+    {word:"three", num:3},
+    {word:"four", num:4},
+    {word:"five", num:5},
+    {word:"six", num:6},
+    {word:"seven", num:7},
+    {word:"eight", num:8},
+    {word:"nine", num:9}
+];
+
+function newQuestion() {
+    let q = numbers[current];
+
+    document.getElementById("question").innerText =
+        `Which one is "${q.word}"?`;
+
+    let choices = [q.num];
+
+    while (choices.length < 4) {
+        let rand = Math.floor(Math.random() * 9) + 1;
+        if (!choices.includes(rand)) {
+            choices.push(rand);
+        }
+    }
+
+    choices.sort(() => Math.random() - 0.5);
+
+    let html = "";
+    choices.forEach(n => {
+        html += `<button onclick="check(${n}, ${q.num})">${n}</button>`;
+    });
+
+    document.getElementById("options").innerHTML = html;
+}
+
+function check(ans, correct) {
+    if (ans === correct) {
+        score++;
+        document.getElementById("result").innerText = "✅ Yay! Correct!";
+        current = (current + 1) % numbers.length;
+    } else {
+        document.getElementById("result").innerText = "❌ Try again!";
+    }
+
+    document.getElementById("score").innerText = "⭐ Score: " + score;
+
+    setTimeout(newQuestion, 800);
+}
+
+newQuestion();
+</script>
+
+</body>
+</html>
