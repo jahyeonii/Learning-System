@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Addition Game</title>
+<link rel="stylesheet" href="../SchoolSystem/css/mathlesson.css">
+</head>
+<body>
+
+<div class="logo">➖ Subtract Numbers</div>
+
+<div class="form-box">
+    <h1>What is...</h1>
+
+    <div id="question">1 + 1 = ?</div>
+
+    <div class="options" id="options"></div>
+
+    <div id="result"></div>
+    <div id="score">⭐ Score: 0</div>
+</div>
+
+<div class="spacer"></div>
+
+<script>
+let score = 0;
+
+function newQuestion() {
+    let a = Math.floor(Math.random() * 5) + 1;
+    let b = Math.floor(Math.random() * 5) + 1;
+    let correct = a - b;
+
+    document.getElementById("question").innerText = `${a} - ${b} = ?`;
+
+    let answers = [
+        correct,
+        correct + 1,
+        correct - 1,
+        correct + 2
+    ];
+
+    answers.sort(() => Math.random() - 0.5);
+
+    let html = "";
+    answers.forEach(n => {
+        html += `<button onclick="check(${n}, ${correct})">${n}</button>`;
+    });
+
+    document.getElementById("options").innerHTML = html;
+}
+
+function check(answer, correct) {
+    if (answer === correct) {
+        score++;
+        document.getElementById("result").innerText = "✅ Yay! Correct!";
+    } else {
+        document.getElementById("result").innerText = "❌ Try again!";
+    }
+
+    document.getElementById("score").innerText = "⭐ Score: " + score;
+
+    setTimeout(newQuestion, 800);
+}
+
+newQuestion();
+</script>
+
+</body>
+</html>
