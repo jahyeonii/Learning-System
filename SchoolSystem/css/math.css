@@ -7,17 +7,21 @@
 body {
     font-family: 'Poppins', 'Comic Sans MS', sans-serif;
     background: linear-gradient(135deg, #e3f2fd, #fff8e1);
-    color: #333;
+    text-align: center;
     align-items: center;
-    background-size: 1530px 1020px;
+    background-size: 1530px 880px;
     background-position: center;
     background-repeat: no-repeat;
     background-image: url(brainrot.jpg.jpg);
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
 .logo {
     display: block;
-    text-align: center;
     font-size: 28px;
     margin: 20px 0;
     text-decoration: none;
@@ -25,15 +29,19 @@ body {
     color: #ff7f50;
 }
 
-.form-box {
-    width: 420px;
-    margin: auto;
-    padding: 25px;
-    background: #ffffff;
+.game-box {
+    width: 450px;
+    margin: 30px auto;
+    padding: 25px 25px;
+    background: linear-gradient(135deg, #e3f2fd, #fff8e1);
     border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     border: 3px dashed #ffd966;
-    animation: float 4s ease-in-out infinite;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;       
+    justify-content: space-between; 
 }
 
 .bottom-nav {
@@ -61,40 +69,46 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .bottom-nav a:hover {
-    color: #ff7043;
-}
-
-h1 {
-    text-align: center;
-    margin-bottom: 10px;
-    color: #ff7043;
+   transform: scale(1.2);
 }
 
 .menu {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
+    flex-direction: column;
+    gap: 12px;
+
+    flex-grow: 1;
+    justify-content: center; 
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
 .menu p {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 10px;
+    color: #4caf50;
     font-weight: bold;
 }
 
+h1 {
+    color: #ff7043;
+    margin-bottom: 15px;
+}
+
 .menu button {
-    width: 45%;
-    background: linear-gradient(45deg, #6ec1e4, #4caf50);
-    border: none;
-    padding: 12px;
+    padding: 14px;
     border-radius: 20px;
+    border: none;
+    font-size: 16px;
     cursor: pointer;
-    font-size: 15px;
+    background: linear-gradient(45deg, #6ec1e4, #4caf50);
     color: white;
     transition: 0.3s;
 }
@@ -104,58 +118,56 @@ h1 {
     background: linear-gradient(45deg, #4caf50, #6ec1e4);
 }
 
-#level, #score, #correctWrong {
-    font-size: 16px;
-    margin: 8px 0;
-    font-weight: bold;
-    text-align: center;
+#lesson {
+    margin-top: 20px;
+    font-size: 22px;
+    min-height: 100px;
 }
 
-#question {
-    font-size: 20px;
-    margin: 15px 0;
-    padding: 15px;
-    border-radius: 15px;
-    background: linear-gradient(120deg, #ffe0b2, #ffccbc);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    text-align: center;
-}
-
-.options {
+.choices {
+    margin-top: 15px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 10px;
 }
 
-.options button {
-    width: 48%;
-    margin-top: 8px;
-    background: linear-gradient(45deg, #6ec1e4, #4caf50);
-    border: none;
-    padding: 12px;
-    border-radius: 20px;
+.choice-btn {
+    padding: 10px 15px;
+    border-radius: 12px;
+    border: 2px solid #ccc;
     cursor: pointer;
-    color: white;
+    background: white;
+    transition: 0.3s;
 }
 
-#changeLesson {
-    margin-top: 10px;
-    width: 100%;
-    background: linear-gradient(45deg, #ff7043, #ffb74d);
-    border: none;
-    padding: 12px;
+.choice-btn:hover {
+    background: #e3f2fd;
+    border-color: #6ec1e4;
+}
+
+#result {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.back {
+    margin-top: 15px;
+    padding: 10px;
     border-radius: 20px;
+    border: none;
+    background: #ff7043;
     color: white;
     cursor: pointer;
 }
 
-.hidden {
-    display: none;
+.back:hover {
+    transform: scale(1.05);
 }
 
 @media (max-width: 480px) {
-    .form-box {
+    .game-box {
         width: 90%;
-        padding: 20px;
     }
 }
