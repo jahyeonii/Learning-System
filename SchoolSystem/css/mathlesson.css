@@ -6,15 +6,15 @@
 
 body {
     font-family: 'Comic Sans MS', 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #e3f2fd, #fff8e1);
-    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-image: url("../Assets/images/brainrot.jpg");
+    background-size: 100% 100%;  /* stretches to fit */
+    background-repeat: no-repeat;
+    min-height: 100vh; 
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-size: 1530px 735px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-image: url(brainrot.jpg.jpg);
 }
 
 .logo {

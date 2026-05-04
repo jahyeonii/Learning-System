@@ -1,0 +1,291 @@
+:root {
+    --white: #ffffff;
+    --gold: #ff7043;
+    --dark: #1c3b1a;
+    --grass: #4ade80;
+    --sky: #f0fdf4;
+    --sunshine: #fef3c7;
+    --text: #1a2e05;
+    --text-dark: #1e293b;
+    --text-gray: #6b7280;
+    --purple: #7C3AED;
+    --card: rgba(255, 255, 255, 0.95);
+    --font: 'Poppins', 'Comic Sans MS', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font);
+    background-image: url("../Assets/images/brainrot.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- Top Navigation Bar --- */
+.top-bar {
+    width: 100%;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stat-group {
+    font-size: 25px;
+    font-weight: bold;
+    color: #ff7043;
+    text-decoration: none;
+}
+
+/* --- Main Content --- */
+.victory-container {
+    text-align: center;
+    padding: 40px 20px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.victory-title {
+    color: var(--gold);
+    font-size: 2.5rem;
+    margin: 0;
+    text-shadow: 2px 2px 0px white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.avatar-circle {
+    width: 100px;
+    height: 100px;
+    background: var(--gold);
+    border: 5px solid var(--grass);
+    border-radius: 50%;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    box-shadow: 0 0 0 10px var(--sunshine);
+}
+.avatar-circle img {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+}
+
+/* --- XP Progress --- */
+.xp-info {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    color: var(--text);
+    font-weight: 600;
+}
+
+.progress-container {
+    background: linear-gradient(to right, #6ec1e4, #4caf50);
+    height: 20px;
+    border-radius: 10px;
+    margin: 10px 0;
+    position: relative;
+}
+
+.progress-fill {
+    background: linear-gradient(to right, #60a5fa, #3b82f6);
+    width: 75%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* --- Badges Section --- */
+.badge-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 25px 0;
+}
+
+.badge-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--sunshine);
+    border: 3px solid var(--gold);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.check {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--grass);
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+}
+
+/* --- Rewards Card --- */
+.rewards-card {
+    background: var(--card);
+    border: 3px dashed #ffd966;
+    border-radius: 30px;
+    padding: 30px;
+    text-align: left;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.reward-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f3f4f6;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.reward-val {
+    background: var(--sunshine);
+    color: var(--gold);
+    padding: 4px 12px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+}
+
+.reward-label {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Footer Nav --- */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 6%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(to right, #6ec1e4, #4caf50);
+    padding: 10px 0;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.bottom-nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.bottom-nav a:hover {
+    transform: scale(1.2);
+}
+
+/* Stats Grid (Correct, Wrong, Stars) */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    width: 100%;
+    max-width: 500px;
+    margin-top: 20px;
+}
+
+.stat-box {
+    background: var(--white);
+    border: 3px dashed #ffd966;
+    border-radius: 15px;
+    padding: 15px 5px;
+    text-align: center;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.stat-num {
+    font-size: 1.8rem;
+    display: block;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.7rem;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Buttons Section */
+.actions-container {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-main {
+    width: 100%;
+    padding: 16px;
+    border-radius: 18px;
+    border: none;
+    font-family: 'Baloo 2';
+    font-size: 1.2rem;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.15);
+    transition: transform 0.1s;
+}
+
+.btn-main:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.btn-world {
+    background: linear-gradient(to bottom, #f59e0b, #d97706);
+    color: var(--text-dark);
+}
+.btn-world:hover {
+    background: linear-gradient(to bottom, #fbbf24, #ea580c);
+    transform: scale(1.05);
+}
+.btn-row {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 12px;
+}
+
+.stars {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}

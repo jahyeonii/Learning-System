@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Study Go</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../css/Lesson-Ending.css">
+
+</head>
+<body>
+<!-- Top Navigation -->
+    <div class="top-bar">
+        <div class="stat-group">
+            <span style="color:#ff7043">StudyGo 🎮</span>
+
+        </div>
+    </div>
+
+    <!-- Victory Content -->
+    <div class="victory-container">
+        <h1 class="victory-title">⚔️ Legendary Victory!</h1>
+        
+        <div class="avatar-circle">
+            <img src="../Assets/images/TungTungSahur-pfp.png" alt="pfp">
+        </div>
+        
+        <div class="xp-info">Level 3</div>
+        <div class="progress-container">
+            <div class="progress-fill"></div>
+        </div>
+        <div class="xp-info">+ 130 XP earned this quest</div>
+
+        <!-- Badges -->
+        <!-- <div class="badge-row">
+            <div class="badge-icon">🗡️<div class="check">✓</div></div>
+            <div class="badge-icon">🛡️<div class="check">✓</div></div>
+            <div class="badge-icon">💎<div class="check">✓</div></div>
+            <div class="badge-icon">👑<div class="check">✓</div></div>
+            <div class="badge-icon">🐍<div class="check">✓</div></div>
+        </div> -->
+
+        <!-- Rewards Card -->
+        <div class="rewards-card">
+            <div style="font-weight: 800; margin-bottom: 15px; color: var(--text2);">⚔️ REWARDS</div>
+            
+            <div class="reward-line">
+                <div class="reward-label">⚡ XP Earned</div>
+                <div class="reward-val">+130</div>
+            </div>
+            <div class="reward-line">
+                <div class="reward-label">🪙 Coins Earned</div>
+                <div class="reward-val">+16</div>
+            </div>
+            <div class="reward-line">
+                <div class="reward-label">🎯 Accuracy</div>
+                <div class="reward-val" style="color: #3b82f6;">100%</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="stats-grid">
+        <div class="stat-box">
+            <span class="stat-num" style="color: var(--grass);">8</span>
+            <span class="stat-label">Correct</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-num" style="color: var(--red);">0</span>
+            <span class="stat-label">Wrong</span>
+        </div>
+        <div class="stat-box">
+            <span class="stat-num stars">★★★</span>
+            <span class="stat-label">Stars</span>
+        </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="actions-container">
+        <button class="btn-main btn-world">
+             🔄 Try Again
+        </button>
+    </div>
+
+</body>
+</html>
+
+    <div class="bottom-nav">
+            <!-- <h2>🎮 Menu</h2> -->
+            <a href="../landing/landing.html">🏠 Home</a>
+            <a href="../TRY/try.html">🎮 Games</a>
+            <a href="#">🎖️ Leaderboards</a>
+        </div>
+
+</body>
+</html>
+  </div>
+</div>
+<!-- <script>
+function endLesson() {
+  clearInterval(lesson.timerInterval);
+  document.getElementById('powerup-bar').classList.remove('visible');
+
+  const total = lesson.questions.length;
+  const acc = Math.round((lesson.correct / total) * 100);
+  const avgTime = Math.round((lesson.totalTime / total) / 1000);
+  
+  // Calculate Rewards
+  let xpGained = lesson.correct * 10;
+  if(lesson.isTest) xpGained *= 2; 
+  if(state.dayStreak >= 3) xpGained = Math.floor(xpGained * 1.5);
+  
+  const coinsGained = lesson.correct * 2 + (acc === 100 ? 20 : 0);
+  const stars = acc >= 90 ? 3 : acc >= 70 ? 2 : acc >= 40 ? 1 : 0;
+
+  // Update State
+  state.xp += xpGained;
+  state.coins += coinsGained;
+  state.totalCorrect += lesson.correct;
+  state.totalAttempts += total;
+  
+  // Update UI Elements
+  document.getElementById('journey-zone-label').textContent = state.currentZone.name;
+  document.getElementById('journey-xp-gained').textContent = xpGained;
+  document.getElementById('jr-xp').textContent = "+" + xpGained;
+  document.getElementById('jr-coins').textContent = "+" + coinsGained;
+  document.getElementById('jr-accuracy').textContent = acc + "%";
+  document.getElementById('jr-combo').textContent = "x" + lesson.maxCombo;
+  document.getElementById('jr-time').textContent = avgTime + "s";
+  document.getElementById('jstat-correct').textContent = lesson.correct;
+  document.getElementById('jstat-wrong').textContent = lesson.wrong;
+  document.getElementById('jstat-stars').textContent = '⭐'.repeat(stars) + '☆'.repeat(3-stars);
+
+  // Show the Result Screen
+  showScreen('result');
+  
+  // Animate XP Bar
+  setTimeout(() => {
+    const pct = Math.min((state.xp / state.xpToNext) * 100, 100);
+    document.getElementById('journey-xp-fill').style.width = pct + "%";
+  }, 500);
+
+  updateHUD();
+}
+</script> -->
+</body>
+</html>

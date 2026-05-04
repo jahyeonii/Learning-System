@@ -7,14 +7,15 @@
 body {
     overflow: hidden;
     font-family: 'Poppins', 'Comic Sans MS', sans-serif;
-    background: linear-gradient(135deg, #e3f2fd, #fff8e1);
+    background-image: url("../Assets/images/brainrot.jpg");
+    background-size: 100% 100%;  /* stretches to fit */
+    background-repeat: no-repeat;
     color: #333;
     justify-content: center; 
     align-items: center;
-    background-size: 1550px 1030px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-image: url(brainrot.jpg.jpg);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; 
 
 }
 
