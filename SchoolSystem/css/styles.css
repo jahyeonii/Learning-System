@@ -1,11 +1,8 @@
 body {
     margin: 0;
-    padding: 0;
-    min-height: 100vh; 
+    min-height: 100vh;
     font-family: 'DM Sans', sans-serif;
-    background-image: url("../Assets/images/brainrot.jpg");
-    background-size: 100% 100%;  /* stretches to fit */
-    background-repeat: no-repeat;
+    background: linear-gradient(160deg, #e0f4ff 0%, #f0ffe8 55%, #fff8e0 100%);
     display: flex;
     justify-content: center;
     align-items: center;
