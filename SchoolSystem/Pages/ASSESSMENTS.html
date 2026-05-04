@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assessment</title>
+  <link rel="stylesheet" href="../css/assessment.css">
+</head>
+<body>
+
+<div class="logo">🧠 Math Assessment!</div>
+
+<div class="form-box">
+    <h2>Solve This:</h2>
+
+    <div id="question">Loading...</div>
+
+    <div class="options" id="options"></div>
+
+    <div id="result"></div>
+    <div id="score">⭐ Score: 0</div>
+</div>
+
+<script>
+let score = 0;
+let questionCount = 0;
+let maxQuestions = 30;
+
+function newQuestion() {
+
+    if (questionCount >= maxQuestions) {
+        showFinalGrade();
+        return;
+    }
+
+    questionCount++;
+
+    let types = ["math", "missing", "compare"];
+    let type = types[Math.floor(Math.random() * types.length)];
+
+    if (type === "math") generateMath();
+    else if (type === "missing") generateMissing();
+    else generateCompare();
+}
+
+/* Normal Math */
+function generateMath() {
+    let a = rand(1, 10);
+    let b = rand(1, 10);
+
+    let ops = ["+", "-", "*", "/"];
+    let op = ops[Math.floor(Math.random() * ops.length)];
+
+    let correct, text;
+
+    if (op === "+") {
+        correct = a + b;
+        text = `${a} + ${b} = ?`;
+    } 
+    else if (op === "-") {
+        correct = a - b;
+        text = `${a} - ${b} = ?`;
+    } 
+    else if (op === "*") {
+        correct = a * b;
+        text = `${a} × ${b} = ?`;
+    } 
+    else {
+        correct = a;
+        let product = a * b;
+        text = `${product} ÷ ${b} = ?`;
+    }
+
+    renderQuestion(text, correct);
+}
+
+/* find missing Number */
+function generateMissing() {
+    let a = rand(1, 10);
+    let b = rand(1, 10);
+
+    let sum = a + b;
+    let correct = a;
+
+    let text = `? + ${b} = ${sum}`;
+
+    renderQuestion(text, correct);
+}
+
+/* Greater, Less than, Equals */
+function generateCompare() {
+    let a = rand(1, 20);
+    let b = rand(1, 20);
+
+    let correct;
+
+    if (a > b) correct = ">";
+    else if (a < b) correct = "<";
+    else correct = "=";
+
+    let text = `${a} ? ${b}`;
+
+    renderQuestion(text, correct, ["<", ">", "="]);
+}
+
+function renderQuestion(text, correct, customAnswers = null) {
+    document.getElementById("question").innerText = text;
+
+    let answers = customAnswers || generateAnswers(correct);
+
+    let html = "";
+    answers.forEach(n => {
+        html += `<button onclick="check('${n}', '${correct}')">${n}</button>`;
+    });
+
+    document.getElementById("options").innerHTML = html;
+}
+
+/* Answer checking  */
+function check(answer, correct) {
+    if (answer == correct) {
+        score++;
+        document.getElementById("result").innerText = "😊 Nice!";
+    } else {
+        document.getElementById("result").innerText = "🙂 Try again next time!";
+    }
+
+    document.getElementById("score").innerText = "⭐ Score: " + score;
+
+    setTimeout(newQuestion, 800);
+}
+
+/* Grade Counter */
+function showFinalGrade() {
+    let gradeText = "";
+    let percent = (score / maxQuestions) * 100;
+
+    if (percent >= 80) {
+        gradeText = "🌟 Amazing! You did super great!";
+    } 
+    else if (percent >= 50) {
+        gradeText = "👍 Good Job! You're getting better!";
+    } 
+    else {
+        gradeText = "💪 Keep Practicing! You're learning!";
+    }
+
+    document.getElementById("question").innerText = "🎉 Quiz Finished!";
+    document.getElementById("options").innerHTML = "";
+    document.getElementById("result").innerText = gradeText;
+}
+
+
+function rand(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function generateAnswers(correct) {
+    let answers = [correct];
+
+    while (answers.length < 4) {
+        let wrong = Number(correct) + rand(-5, 5);
+        if (!answers.includes(wrong)) answers.push(wrong);
+    }
+
+    return answers.sort(() => Math.random() - 0.5);
+}
+
+/* START */
+newQuestion();
+</script>
+
+</body>
+</html>
