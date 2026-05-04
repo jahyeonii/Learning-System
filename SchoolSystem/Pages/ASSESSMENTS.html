@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<div class="logo">🧠 Math Madness</div>
+<div class="logo">🧠 Math Assessment!</div>
 
 <div class="form-box">
     <h2>Solve This:</h2>
@@ -21,65 +21,133 @@
 
 <script>
 let score = 0;
+let questionCount = 0;
+let maxQuestions = 30;
 
 function newQuestion() {
-    let a, b, correct, questionText;
 
-    let operations = ["+", "-", "*", "/"];
-    let op = operations[Math.floor(Math.random() * operations.length)];
+    if (questionCount >= maxQuestions) {
+        showFinalGrade();
+        return;
+    }
+
+    questionCount++;
+
+    let types = ["math", "missing", "compare"];
+    let type = types[Math.floor(Math.random() * types.length)];
+
+    if (type === "math") generateMath();
+    else if (type === "missing") generateMissing();
+    else generateCompare();
+}
+
+/* Normal Math */
+function generateMath() {
+    let a = rand(1, 10);
+    let b = rand(1, 10);
+
+    let ops = ["+", "-", "*", "/"];
+    let op = ops[Math.floor(Math.random() * ops.length)];
+
+    let correct, text;
 
     if (op === "+") {
-        a = rand(1, 10);
-        b = rand(1, 10);
         correct = a + b;
-        questionText = `${a} + ${b} = ?`;
-    }
-
+        text = `${a} + ${b} = ?`;
+    } 
     else if (op === "-") {
-        a = rand(1, 10);
-        b = rand(1, a);
         correct = a - b;
-        questionText = `${a} - ${b} = ?`;
-    }
-
+        text = `${a} - ${b} = ?`;
+    } 
     else if (op === "*") {
-        a = rand(1, 10);
-        b = rand(1, 10);
         correct = a * b;
-        questionText = `${a} × ${b} = ?`;
+        text = `${a} × ${b} = ?`;
+    } 
+    else {
+        correct = a;
+        let product = a * b;
+        text = `${product} ÷ ${b} = ?`;
     }
 
-    else if (op === "/") {
-        b = rand(1, 10);
-        correct = rand(1, 10);
-        a = b * correct;
-        questionText = `${a} ÷ ${b} = ?`;
-    }
+    renderQuestion(text, correct);
+}
 
-    document.getElementById("question").innerText = questionText;
+/* find missing Number */
+function generateMissing() {
+    let a = rand(1, 10);
+    let b = rand(1, 10);
 
-    let answers = generateAnswers(correct);
+    let sum = a + b;
+    let correct = a;
+
+    let text = `? + ${b} = ${sum}`;
+
+    renderQuestion(text, correct);
+}
+
+/* Greater, Less than, Equals */
+function generateCompare() {
+    let a = rand(1, 20);
+    let b = rand(1, 20);
+
+    let correct;
+
+    if (a > b) correct = ">";
+    else if (a < b) correct = "<";
+    else correct = "=";
+
+    let text = `${a} ? ${b}`;
+
+    renderQuestion(text, correct, ["<", ">", "="]);
+}
+
+function renderQuestion(text, correct, customAnswers = null) {
+    document.getElementById("question").innerText = text;
+
+    let answers = customAnswers || generateAnswers(correct);
 
     let html = "";
     answers.forEach(n => {
-        html += `<button onclick="check(${n}, ${correct})">${n}</button>`;
+        html += `<button onclick="check('${n}', '${correct}')">${n}</button>`;
     });
 
     document.getElementById("options").innerHTML = html;
 }
 
+/* Answer checking  */
 function check(answer, correct) {
-    if (answer === correct) {
+    if (answer == correct) {
         score++;
-        document.getElementById("result").innerText = "✅ Correct!";
+        document.getElementById("result").innerText = "😊 Nice!";
     } else {
-        document.getElementById("result").innerText = `❌ Wrong! Answer: ${correct}`;
+        document.getElementById("result").innerText = "🙂 Try again next time!";
     }
 
     document.getElementById("score").innerText = "⭐ Score: " + score;
 
-    setTimeout(newQuestion, 1000);
+    setTimeout(newQuestion, 800);
 }
+
+/* Grade Counter */
+function showFinalGrade() {
+    let gradeText = "";
+    let percent = (score / maxQuestions) * 100;
+
+    if (percent >= 80) {
+        gradeText = "🌟 Amazing! You did super great!";
+    } 
+    else if (percent >= 50) {
+        gradeText = "👍 Good Job! You're getting better!";
+    } 
+    else {
+        gradeText = "💪 Keep Practicing! You're learning!";
+    }
+
+    document.getElementById("question").innerText = "🎉 Quiz Finished!";
+    document.getElementById("options").innerHTML = "";
+    document.getElementById("result").innerText = gradeText;
+}
+
 
 function rand(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -89,15 +157,14 @@ function generateAnswers(correct) {
     let answers = [correct];
 
     while (answers.length < 4) {
-        let wrong = correct + rand(-5, 5);
-        if (wrong !== correct && !answers.includes(wrong)) {
-            answers.push(wrong);
-        }
+        let wrong = Number(correct) + rand(-5, 5);
+        if (!answers.includes(wrong)) answers.push(wrong);
     }
 
     return answers.sort(() => Math.random() - 0.5);
 }
 
+/* START */
 newQuestion();
 </script>
 
