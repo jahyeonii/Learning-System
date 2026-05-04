@@ -1,3 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assessment</title>
+  <link rel="stylesheet" href="../css/assessment.css">
+</head>
+<body>
+
+<div class="logo">🧠 Math Madness</div>
+
+<div class="form-box">
+    <h2>Solve This:</h2>
+
+    <div id="question">Loading...</div>
+
+    <div class="options" id="options"></div>
+
+    <div id="result"></div>
+    <div id="score">⭐ Score: 0</div>
+</div>
+
 <script>
 let score = 0;
 
@@ -16,7 +37,7 @@ function newQuestion() {
 
     else if (op === "-") {
         a = rand(1, 10);
-        b = rand(1, a); // prevents negative answers
+        b = rand(1, a);
         correct = a - b;
         questionText = `${a} - ${b} = ?`;
     }
@@ -31,7 +52,7 @@ function newQuestion() {
     else if (op === "/") {
         b = rand(1, 10);
         correct = rand(1, 10);
-        a = b * correct; // ensures whole number division
+        a = b * correct;
         questionText = `${a} ÷ ${b} = ?`;
     }
 
@@ -79,3 +100,6 @@ function generateAnswers(correct) {
 
 newQuestion();
 </script>
+
+</body>
+</html>
