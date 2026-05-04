@@ -1,0 +1,81 @@
+<script>
+let score = 0;
+
+function newQuestion() {
+    let a, b, correct, questionText;
+
+    let operations = ["+", "-", "*", "/"];
+    let op = operations[Math.floor(Math.random() * operations.length)];
+
+    if (op === "+") {
+        a = rand(1, 10);
+        b = rand(1, 10);
+        correct = a + b;
+        questionText = `${a} + ${b} = ?`;
+    }
+
+    else if (op === "-") {
+        a = rand(1, 10);
+        b = rand(1, a); // prevents negative answers
+        correct = a - b;
+        questionText = `${a} - ${b} = ?`;
+    }
+
+    else if (op === "*") {
+        a = rand(1, 10);
+        b = rand(1, 10);
+        correct = a * b;
+        questionText = `${a} × ${b} = ?`;
+    }
+
+    else if (op === "/") {
+        b = rand(1, 10);
+        correct = rand(1, 10);
+        a = b * correct; // ensures whole number division
+        questionText = `${a} ÷ ${b} = ?`;
+    }
+
+    document.getElementById("question").innerText = questionText;
+
+    let answers = generateAnswers(correct);
+
+    let html = "";
+    answers.forEach(n => {
+        html += `<button onclick="check(${n}, ${correct})">${n}</button>`;
+    });
+
+    document.getElementById("options").innerHTML = html;
+}
+
+function check(answer, correct) {
+    if (answer === correct) {
+        score++;
+        document.getElementById("result").innerText = "✅ Correct!";
+    } else {
+        document.getElementById("result").innerText = `❌ Wrong! Answer: ${correct}`;
+    }
+
+    document.getElementById("score").innerText = "⭐ Score: " + score;
+
+    setTimeout(newQuestion, 1000);
+}
+
+function rand(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function generateAnswers(correct) {
+    let answers = [correct];
+
+    while (answers.length < 4) {
+        let wrong = correct + rand(-5, 5);
+        if (wrong !== correct && !answers.includes(wrong)) {
+            answers.push(wrong);
+        }
+    }
+
+    return answers.sort(() => Math.random() - 0.5);
+}
+
+newQuestion();
+</script>
