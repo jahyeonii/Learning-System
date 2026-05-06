@@ -1,0 +1,159 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudyGo - Multiplication</title>
+<link rel="stylesheet" href="../css/mathlesson.css">
+</head>
+
+<body>
+
+<a href="#" class="logo">StudyGo 🎮</a>
+
+<div class="game-box">
+
+    <h2>✖️ Multiplication</h2>
+
+    <div id="question"></div>
+
+    <div class="choices" id="choices"></div>
+
+    <div id="result"></div>
+    <div id="score">⭐ Score: 0</div>
+
+    <button class="repeat-btn" onclick="repeatQuestion()">🔁 Repeat</button>
+
+</div>
+
+<audio id="wrongSound" src="wrong.mp3"></audio>
+
+<script>
+let score = 0;
+const items = ["🍎","🍌","🍇","🐶","🐱","🐸"];
+
+const brainrot = [
+    "tralalelo tralala",
+    "tung tung tung sahur",
+    "balerina capuccina",
+    "asasino capuccino",
+    "lirili larila",
+    "bombordilo crocodilo",
+    "bananini chimpanzini",
+    "67 67 67",
+    "sikibidi toilet"
+];
+
+let currentSpeech = "";
+let audioEnabled = false;
+
+function speak(text, callback){
+    if(!audioEnabled) return;
+
+    const speech = new SpeechSynthesisUtterance(text);
+    speech.rate = 0.9;
+    speech.pitch = 1;
+    speech.lang = "en-US";
+
+    if(callback) speech.onend = callback;
+
+    window.speechSynthesis.speak(speech);
+}
+
+function repeatQuestion(){
+    speak(currentSpeech);
+}
+
+function getName(emoji){
+    switch(emoji){
+        case "🍎": return "apple";
+        case "🍌": return "banana";
+        case "🍇": return "grape";
+        case "🐶": return "dog";
+        case "🐱": return "cat";
+        case "🐸": return "frog";
+    }
+}
+
+function emoji(e,n){ return e.repeat(n); }
+
+function newQ(){
+    let e = items[rand(0,items.length-1)];
+    let a = rand(1,5), b = rand(1,5);
+    let correct = a * b;
+
+    question.innerText = `${a} groups of ${b} ${emoji(e,b)} = ?`;
+
+    render(correct,e);
+
+    let name = getName(e);
+    let plural = b > 1 ? name + "s" : name;
+
+    currentSpeech = `${a} groups of ${b} ${plural}. What is the answer?`;
+
+    setTimeout(() => {
+        speak(currentSpeech);
+    }, 1000);
+}
+
+function render(correct,e){
+    let set = new Set([correct]);
+
+    while(set.size < 4){
+        let v = correct + rand(-3,3);
+        if(v>0 && v<=25) set.add(v);
+    }
+
+    choices.innerHTML = "";
+
+    [...set].sort(()=>Math.random()-0.5).forEach(n=>{
+        choices.innerHTML += `
+        <button class="choice-btn" onclick="check(${n},${correct})">
+            <span>${n} ${emoji(e,Math.min(n,10))}</span>
+        </button>
+        `;
+    });
+}
+
+function check(a,c){
+    if(a===c){
+        result.innerText = "✅ Correct!";
+        score++;
+
+        let random = brainrot[rand(0, brainrot.length-1)];
+
+        speak(random, () => {
+            scoreDiv.innerText = "⭐ Score: " + score;
+            newQ();
+        });
+
+    } else {
+        result.innerText = "❌ Try again!";
+
+        wrongSound.currentTime = 0;
+        wrongSound.play();
+
+        scoreDiv.innerText = "⭐ Score: " + score;
+        setTimeout(newQ,800);
+    }
+}
+
+function rand(a,b){ return Math.floor(Math.random()*(b-a+1))+a; }
+
+const question = document.getElementById("question");
+const choices = document.getElementById("choices");
+const result = document.getElementById("result");
+const scoreDiv = document.getElementById("score");
+const wrongSound = document.getElementById("wrongSound");
+
+newQ();
+
+document.body.addEventListener("click", () => {
+    audioEnabled = true;
+    speak(currentSpeech);
+}, { once: true });
+
+</script>
+
+</body>
+</html>
