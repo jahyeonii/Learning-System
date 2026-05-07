@@ -33,6 +33,30 @@
         
         </form>
     </div>
+     <!-- JS -->
+    <script>
+        const form = document.getElementById("loginForm");
+
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const isAdmin = document.getElementById("adminMode").checked;
+
+            // SIMPLE DEMO LOGIC 
+            if (isAdmin) {
+                if (email === "admin@studygo.com" && password === "admin123") {
+                    window.location.href = "../Pages/admin-dashboard.html";
+                } else {
+                    alert("Invalid admin credentials");
+                }
+            } else {
+                window.location.href = "../Pages/home.html";
+            }
+        });
+    </script>
+
 
 </body>
 </html>

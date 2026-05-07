@@ -7,6 +7,10 @@ body {
     background: linear-gradient(135deg, #e3f2fd, #fff8e1);
     color: #333;
     align-items: center;
+    /* background-size: 1550px 2500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(brainrot.jpg.jpg); */
 }
 
 nav {
