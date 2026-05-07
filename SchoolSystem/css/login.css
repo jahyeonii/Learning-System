@@ -11,11 +11,10 @@ body {
     color: #333;
     justify-content: center; 
     align-items: center;
-    background-size: 1550px 1030px;
+    background-size: 1536px 1023px;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url(brainrot.jpg.jpg);
-
+    background-image: url(../Pages/brainrot.jpg);
 }
 
 .logo {
@@ -27,12 +26,12 @@ body {
     font-weight: bold;
     color: #ff7f50;
 }
-*/
+
 .form-box {
     width: 420px;
     margin: auto;
     padding: 25px;
-    background: #ffffff;
+     background: linear-gradient(135deg, #e3f2fd, #fff8e1);
     border-radius: 20px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     border: 3px dashed #ffd966;
