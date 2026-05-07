@@ -1,10 +1,10 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StudyGo - Division</title>
 <link rel="stylesheet" href="../css/mathlesson.css">
+<title>StudyGo - Division</title>
 </head>
 
 <body>
@@ -20,16 +20,26 @@
     <div class="choices" id="choices"></div>
 
     <div id="result"></div>
-    <div id="score">⭐ Score: 0</div>
 
-    <button class="repeat-btn" onclick="repeatQuestion()">🔁 Repeat</button>
+    <div id="score">📘 1/10</div>
+
+    <button class="repeat-btn" onclick="repeatQuestion()">
+        🔁 Repeat
+    </button>
 
 </div>
 
 <audio id="wrongSound" src="wrong.mp3"></audio>
 
 <script>
+
 let score = 0;
+let wrong = 0;
+let stars = 0;
+
+let currentQuestion = 1;
+const totalQuestions = 10;
+
 const items = ["🍎","🍌","🍇","🐶","🐱","🐸"];
 
 const brainrot = [
@@ -48,9 +58,11 @@ let currentSpeech = "";
 let audioEnabled = false;
 
 function speak(text, callback){
+
     if(!audioEnabled) return;
 
     const speech = new SpeechSynthesisUtterance(text);
+
     speech.rate = 0.9;
     speech.pitch = 1;
     speech.lang = "en-US";
@@ -65,6 +77,7 @@ function repeatQuestion(){
 }
 
 function getName(emoji){
+
     switch(emoji){
         case "🍎": return "apple";
         case "🍌": return "banana";
@@ -75,40 +88,64 @@ function getName(emoji){
     }
 }
 
-function emoji(e,n){ return e.repeat(n); }
+function emoji(e,n){
+    return e.repeat(n);
+}
 
 function newQ(){
+
+    if(currentQuestion > totalQuestions){
+        showResults();
+        return;
+    }
+
     let e = items[rand(0,items.length-1)];
 
-    let divisor = rand(1,5);
-    let answer = rand(1,5);
-    let total = divisor * answer; 
+    let b = rand(1,5);
+    let correct = rand(1,5);
+    let a = correct * b; // ensures clean division
 
-    question.innerText = `${total} ${emoji(e,total)} ÷ ${divisor} = ?`;
+    question.innerHTML = `
+        <div style="font-size:18px;color:#ff7043;margin-bottom:10px;">
+            Question ${currentQuestion}/${totalQuestions}
+        </div>
 
-    render(answer,e);
+        ${a} ${emoji(e,a)} ÷ ${b} ${emoji(e,b)} = ?
+    `;
+
+    render(correct,e);
 
     let name = getName(e);
-    let pluralTotal = total > 1 ? name + "s" : name;
 
-    currentSpeech = `${total} ${pluralTotal} shared into ${divisor} groups. How many in each group?`;
+    let pluralA = a > 1 ? name + "s" : name;
+    let pluralB = b > 1 ? name + "s" : name;
+
+    currentSpeech = `${a} ${pluralA} divided by ${b} ${pluralB}. What is the answer?`;
 
     setTimeout(() => {
         speak(currentSpeech);
-    }, 1000);
+    },1000);
 }
 
 function render(correct,e){
+
     let set = new Set([correct]);
 
     while(set.size < 4){
+
         let v = correct + rand(-2,2);
-        if(v>0 && v<=10) set.add(v);
+
+        if(v > 0 && v <= 10){
+            set.add(v);
+        }
     }
 
     choices.innerHTML = "";
 
-    [...set].sort(()=>Math.random()-0.5).forEach(n=>{
+    [...set]
+    .sort(()=>Math.random()-0.5)
+    .forEach(n=>{
+
         choices.innerHTML += `
         <button class="choice-btn" onclick="check(${n},${correct})">
             <span>${n} ${emoji(e,n)}</span>
@@ -117,30 +154,121 @@ function render(correct,e){
     });
 }
 
-function check(a,c){
-    if(a===c){
-        result.innerText = "✅ Correct!";
-        score++;
+function check(answer,correct){
 
-        let random = brainrot[rand(0, brainrot.length-1)];
+    if(answer === correct){
+
+        result.innerText = "✅ Correct!";
+
+        score++;
+        stars++;
+
+        let random = brainrot[rand(0,brainrot.length-1)];
 
         speak(random, () => {
-            scoreDiv.innerText = "⭐ Score: " + score;
-            newQ();
+
+            currentQuestion++;
+            updateProgress();
+
+            setTimeout(newQ,500);
         });
 
     } else {
-        result.innerText = "❌ Try again!";
+
+        result.innerText = "❌ Wrong!";
+
+        wrong++;
 
         wrongSound.currentTime = 0;
         wrongSound.play();
 
-        scoreDiv.innerText = "⭐ Score: " + score;
+        currentQuestion++;
+
+        updateProgress();
+
         setTimeout(newQ,800);
     }
 }
 
-function rand(a,b){ return Math.floor(Math.random()*(b-a+1))+a; }
+function updateProgress(){
+    scoreDiv.innerText = `📘 ${Math.min(currentQuestion,totalQuestions)}/${totalQuestions}`;
+}
+
+function showResults(){
+
+    let exp = stars * 20;
+
+    let message = "";
+
+    if(score === 10){
+        message = "🏆 PERFECT SCORE!";
+    } else if(score >= 7){
+        message = "🔥 Great Job!";
+    } else if(score >= 5){
+        message = "👍 Nice Try!";
+    } else {
+        message = "💪 Keep Practicing!";
+    }
+
+    document.body.innerHTML = `
+
+    <div class="result-screen">
+
+        <h1 class="result-title">${message}</h1>
+
+        <div class="result-card">
+
+            <div class="character-box">
+                <img src="../Games/Sahur2.webp">
+            </div>
+
+            <div class="big-score">${score}/10</div>
+
+            <p class="score-text">
+                You answered ${score} out of 10 correctly!
+            </p>
+
+            <div class="stats-row">
+
+                <div class="mini-card">
+                    <h2>⭐ Stars</h2>
+                    <p>${stars}</p>
+                </div>
+
+                <div class="mini-card">
+                    <h2>❌ Wrong</h2>
+                    <p>${wrong}</p>
+                </div>
+
+            </div>
+
+            <div class="reward-box">
+
+                <div class="reward-line">
+                    <span>⭐ Stars Earned</span>
+                    <b>+${stars}</b>
+                </div>
+
+                <div class="reward-line">
+                    <span>🆙 EXP Earned</span>
+                    <b>+${exp}</b>
+                </div>
+
+            </div>
+
+            <button class="play-again" onclick="location.reload()">
+                🔄 Try Again
+            </button>
+
+        </div>
+
+    </div>
+    `;
+}
+
+function rand(a,b){
+    return Math.floor(Math.random()*(b-a+1))+a;
+}
 
 const question = document.getElementById("question");
 const choices = document.getElementById("choices");
@@ -148,12 +276,13 @@ const result = document.getElementById("result");
 const scoreDiv = document.getElementById("score");
 const wrongSound = document.getElementById("wrongSound");
 
+updateProgress();
 newQ();
 
 document.body.addEventListener("click", () => {
     audioEnabled = true;
     speak(currentSpeech);
-}, { once: true });
+}, { once:true });
 
 </script>
 
