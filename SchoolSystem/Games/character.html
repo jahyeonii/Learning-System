@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../css/character.css">
+<title>StudyGo Home</title>
+</head>
+
+<body>
+
+<h1>Choose your Character!</h1>
+
+<div class="stars-box">
+    ⭐ Stars: <span id="starCount">0</span>
+</div>
+
+<a href="../Pages/home.html" class="back-btn">⬅ Back</a>
+
+<div class="profile-container">
+
+    <div id="tungtung" class="profile">
+        <img src="https://static.wikia.nocookie.net/character-stats-and-profiles/images/5/52/Sahur2.webp/revision/latest/scale-to-width-down/340?cb=20250510085254" 
+        alt="character" class="small-img">
+        <p>Tung Tung Tung Sahur</p>
+        <span class="unlock-text">Unlocked</span>
+    </div>
+
+    <div class="profile locked" id="char2">
+        <img src="../Games/Ballerina-Capuchina-Transparent-768x853-removebg-preview.png" 
+        alt="locked character" class="small-img">
+        <p>Ballerina Capuccina</p>
+        <span class="unlock-text">Unlock at 10 ⭐</span>
+    </div>
+
+    <div class="profile locked" id="char3">
+        <img id="tralalelo" src="../Games/UDyJj3.png" alt="locked character" class="small-img">
+        <p id="tralalelotext">Tralalelo Tralala</p>
+        <span id="tralalelotext" class="unlock-text">Unlock at 20 ⭐</span>
+    </div>
+
+    <div class="profile locked" id="char4">
+        <img src="../Games/Cappuccino-Assassino-Viral-TikTok-768x691-removebg-preview.png" alt="locked character" class="small-img">
+        <p>Cappuccino Assassino</p>
+        <span class="unlock-text">Unlock at 30 ⭐</span>
+    </div>
+
+    <div class="profile locked" id="char5">
+        <img src="../Games/lirili-removebg-preview.png" alt="locked character" class="small-img">
+        <p>Lirili Larila</p>
+        <span class="unlock-text">Unlock at 40 ⭐</span>
+    </div>
+
+    <div class="profile locked" id="char6">
+        <img src="../Games/bananini_removebg.png" alt="locked character" class="small-img">
+        <p>Bananini Chimpanzini</p>
+        <span class="unlock-text">Unlock at 50 ⭐</span>
+    </div>
+
+</div>
+
+<script>
+
+    let stars = 0;
+
+    document.getElementById("starCount").textContent = stars;
+
+    if (stars >= 10) {
+        document.getElementById("char2").classList.remove("locked");
+    }
+
+    if (stars >= 20) {
+        document.getElementById("char3").classList.remove("locked");
+    }
+
+    if (stars >= 30) {
+        document.getElementById("char4").classList.remove("locked");
+    }
+
+    if (stars >= 40) {
+        document.getElementById("char5").classList.remove("locked");
+    }
+
+    if (stars >= 50) {
+        document.getElementById("char6").classList.remove("locked");
+    }
+
+</script>
+
+</body>
+</html>
