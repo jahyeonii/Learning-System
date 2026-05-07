@@ -3,10 +3,10 @@ body {
     font-family: "Comic Sans MS", "Poppins", sans-serif;
     background: #f5f2e8; 
     text-align: center;
-    background-size: 1536px 725px;
-    background-position: center;
+    background-image: url("../Assets/images/brainrot.jpg");
+    background-size: 100% 100%;
     background-repeat: no-repeat;
-    background-image: url(../Pages/brainrot.jpg);
+    min-height: 100vh;
 }
 
 .bottom-nav {
