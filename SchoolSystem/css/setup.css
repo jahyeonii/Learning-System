@@ -9,10 +9,10 @@ body {
     background: linear-gradient(135deg, #e3f2fd, #fff8e1);
     color: #333;
     align-items: center;
-    background-size: 1530px 1035px;
+    background-size: 1522px 925px;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url(brainrot.jpg.jpg);
+    background-image: url(../Pages/brainrot.jpg);
 }
 
 .logo {
