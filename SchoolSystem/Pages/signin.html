@@ -12,7 +12,7 @@
     <a href="/Pages/landingpage.html" class="logo">StudyGo 🎮</a>
 
     <div class="form-box">
-        <form action="../Pages/home.html" method="get"> 
+        <form action="../Pages/home.html" method="get" onsubmit="return checkPassword()"> 
 
             <h1>Sign-in</h1>
 
@@ -26,8 +26,8 @@
 
             <br><br>
 
-            <label for="password">Confirm Password:</label>
-            <input type="password" name="password" id="password" placeholder="Password" required>
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Password" required>
 
             <button type="submit" class="btn">Sign-In</button> 
 
@@ -38,6 +38,36 @@
             
         </form>
     </div>
+
+    <script>
+
+        let password = document.getElementById("password");
+        let confirmPassword = document.getElementById("confirmPassword");
+
+        confirmPassword.addEventListener("focus", function () {
+
+            if (password.value.length < 8) {
+                password.value = "";
+                password.placeholder = "Input a password at least 8 characters";
+                password.focus();
+                confirmPassword.blur();
+            }
+
+        });
+
+        function checkPassword() {
+
+            if (password.value !== confirmPassword.value) {
+                confirmPassword.value = "";
+                confirmPassword.placeholder = "Passwords didn't match";
+                confirmPassword.focus();
+                return false;
+            }
+
+            return true;
+        }
+
+    </script>
 
 </body>
 </html>
