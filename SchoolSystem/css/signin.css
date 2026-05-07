@@ -14,7 +14,7 @@ body {
     background-size: 1530px 940px;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url(brainrot.jpg.jpg);
+    background-image: url("../Assets/images/brainrot.png");
 }
 
 .logo {

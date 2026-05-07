@@ -5,17 +5,16 @@
 }
 
 body {
-    overflow: hidden;
     font-family: 'Poppins', 'Comic Sans MS', sans-serif;
     background: linear-gradient(135deg, #e3f2fd, #fff8e1);
     color: #333;
+    overflow: hidden;
     justify-content: center; 
     align-items: center;
-    background-size: 1550px 1030px;
+    background-size: 1530px 940px;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url(brainrot.jpg.jpg);
-
+    background-image: url("../Assets/images/brainrot.png");
 }
 
 .logo {
@@ -27,7 +26,7 @@ body {
     font-weight: bold;
     color: #ff7f50;
 }
-*/
+
 .form-box {
     width: 420px;
     margin: auto;
@@ -38,9 +37,6 @@ body {
     border: 3px dashed #ffd966;
     animation: float 4s ease-in-out infinite;
     color: #555;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 h1 {

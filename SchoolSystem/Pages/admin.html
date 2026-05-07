@@ -7,14 +7,16 @@
         <title>StudyGo - Admin Panel</title>
     </head>
     <body>
-    <nav class="nav">
+   <!-- NAV -->
+<nav class="nav">
   <a href="#" class="nav-logo">StudyGo <span class="nav-tag">⚙️ Admin</span></a>
   <div class="nav-right">
-    <a href="#" class="nav-btn">➕ Add Student</a>
-    <a href="#" class="nav-btn pill-btn--orange">📢 Announce</a>
+    <button class="nav-btn" onclick="openModal('modal-add-student')">➕ Add Student</button>
+    <button class="nav-btn pill-btn--orange" onclick="openModal('modal-announce')">📢 Announce</button>
   </div>
 </nav>
-
+ 
+<!-- PAGE -->
 <div class="page">
  
   <div class="welcome-card">
@@ -22,13 +24,12 @@
       <h1>Admin Panel 🛠️</h1>
       <p>Here's what's happening in StudyGo today!</p>
       <div class="welcome-stats">
-        <div class="w-stat"><div class="w-stat-val">32</div><div class="w-stat-lbl">Students</div></div>
+        <div class="w-stat"><div class="w-stat-val" id="stat-students">32</div><div class="w-stat-lbl">Students</div></div>
         <div class="w-stat"><div class="w-stat-val">18</div><div class="w-stat-lbl">Active Today</div></div>
         <div class="w-stat"><div class="w-stat-val">6</div><div class="w-stat-lbl">Lessons</div></div>
-        <div class="w-stat"><div class="w-stat-val">247</div><div class="w-stat-lbl">XP Earned Today</div></div>
+        <div class="w-stat"><div class="w-stat-val">247</div><div class="w-stat-lbl">XP Today</div></div>
       </div>
     </div>
-    <div class="welcome-art"></div>
   </div>
  
   <div class="cols">
@@ -37,156 +38,38 @@
       <div class="dcard">
         <div class="dcard-title">📊 Overview</div>
         <div class="stats-grid">
-          <div class="stat-card">
-            <!-- <div class="stat-icon">👧</div> -->
-            <div class="stat-val">32</div>
-            <div class="stat-lbl">Total Students</div>
-          </div>
-          <div class="stat-card stat-card--blue">
-            <!-- <div class="stat-icon">✅</div> -->
-            <div class="stat-val">18</div>
-            <div class="stat-lbl">Active Today</div>
-          </div>
-          <div class="stat-card stat-card--orange">
-            <!-- <div class="stat-icon">📚</div> -->
-            <div class="stat-val">6</div>
-            <div class="stat-lbl">Total Lessons</div>
-          </div>
-          <div class="stat-card stat-card--pink">
-            <!-- <div class="stat-icon">⚡</div> -->
-            <div class="stat-val">247</div>
-            <div class="stat-lbl">XP Today</div>
-          </div>
-          <div class="stat-card stat-card--purple">
-            <!-- <div class="stat-icon">🏅</div> -->
-            <div class="stat-val">14</div>
-            <div class="stat-lbl">Badges Earned</div>
-          </div>
-          <div class="stat-card stat-card--yellow">
-            <!-- <div class="stat-icon">🔥</div> -->
-            <div class="stat-val">7</div>
-            <div class="stat-lbl">Avg Streak</div>
-          </div>
+          <div class="stat-card"><div class="stat-val" id="ov-total">32</div><div class="stat-lbl">Total Students</div></div>
+          <div class="stat-card stat-card--blue"><div class="stat-val">18</div><div class="stat-lbl">Active Today</div></div>
+          <div class="stat-card stat-card--orange"><div class="stat-val">6</div><div class="stat-lbl">Total Lessons</div></div>
+          <div class="stat-card stat-card--pink"><div class="stat-val">247</div><div class="stat-lbl">XP Today</div></div>
+          <div class="stat-card stat-card--purple"><div class="stat-val">14</div><div class="stat-lbl">Badges Earned</div></div>
+          <div class="stat-card stat-card--yellow"><div class="stat-val">7</div><div class="stat-lbl">Avg Streak</div></div>
         </div>
       </div>
  
       <div class="dcard">
-        <div class="dcard-title"> Students <span>32 total</span></div>
-        <table class="student-table">
-          <thead>
-            <tr>
-              <th>Student</th>
-              <th>Level</th>
-              <th>XP</th>
-              <th>Progress</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><div class="student-name"><span>🐱</span>Sosuke Aizen</div></td>
-              <td><span class="level-tag">Lvl 6</span></td>
-              <td><span class="xp-badge">4,820 XP</span></td>
-              <td><div class="progress-mini"><div class="progress-mini-fill"></div></div></td>
-              <td><span class="status-dot dot-active"></span>Active</td>
-            </tr>
-            <tr>
-              <td><div class="student-name"><span class="student-av">🐶</span>Johan Liebert</div></td>
-              <td><span class="level-tag">Lvl 5</span></td>
-              <td><span class="xp-badge">4,210 XP</span></td>
-              <td><div class="progress-mini"><div class="progress-mini-fill"></div></div></td>
-              <td><span class="status-dot dot-active"></span>Active</td>
-            </tr>
-            <tr>
-              <td><div class="student-name"><span class="student-av">🦊</span>Shikamaru Nara</div></td>
-              <td><span class="level-tag">Lvl 5</span></td>
-              <td><span class="xp-badge">3,400 XP</span></td>
-              <td><div class="progress-mini"><div class="progress-mini-fill"></div></div></td>
-              <td><span class="status-dot dot-active"></span>Active</td>
-            </tr>
-            <tr>
-              <td><div class="student-name"><span class="student-av">🐸</span>Koro Sensei</div></td>
-              <td><span class="level-tag">Lvl 4</span></td>
-              <td><span class="xp-badge">3,050 XP</span></td>
-              <td><div class="progress-mini"><div class="progress-mini-fill"></div></div></td>
-              <td><span class="status-dot dot-idle"></span>Idle</td>
-            </tr>
-            <tr>
-              <td><div class="student-name"><span class="student-av">🦋</span>Senku Ishigami</div></td>
-              <td><span class="level-tag">Lvl 4</span></td>
-              <td><span class="xp-badge">2,780 XP</span></td>
-              <td><div class="progress-mini"><div class="progress-mini-fill"></div></div></td>
-              <td><span class="status-dot dot-idle"></span>Idle</td>
-            </tr>
-            <tr>
-              <td><div class="student-name"><span class="student-av">🐻</span>Lelouch Lamperouge</div></td>
-              <td><span class="level-tag">Lvl 3</span></td>
-              <td><span class="xp-badge">1,940 XP</span></td>
-              <td><div class="progress-mini"><div class="progress-mini-fill"></div></div></td>
-              <td><span class="status-dot dot-offline"></span>Offline</td>
-            </tr>
-            <tr>
-              <td><div class="student-name"><span class="student-av">🐼</span>L Lawliet</div></td>
-              <td><span class="level-tag">Lvl 2</span></td>
-              <td><span class="xp-badge">980 XP</span></td>
-              <td><div class="progress-mini"><div class="progress-mini-fill"></div></div></td>
-              <td><span class="status-dot dot-offline"></span>Offline</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="dcard-title">👧 Students <span id="table-count">32 total</span></div>
+        <div class="table-scroll">
+          <table class="student-table">
+            <thead>
+              <tr><th>Student</th><th>Level</th><th>XP</th><th>Progress</th><th>Status</th></tr>
+            </thead>
+            <tbody id="student-tbody"></tbody>
+          </table>
+        </div>
         <div style="margin-top:16px">
-          <a href="#" class="pill-btn"><span class="pill-icon"></span> View All 32 Students</a>
+          <button class="pill-btn" onclick="openPanel()">👁️ View All Students</button>
         </div>
       </div>
  
       <div class="dcard">
         <div class="dcard-title">📋 Recent Activity</div>
-        <div class="log-list">
-          <div class="log-item">
-            <div class="log-icon">🐉</div>
-            <div class="log-info">
-              <div class="log-title">Sosuke Aizen completed The Lost Dragon</div>
-              <div class="log-sub">📖 Reading Stories · Level Easy</div>
-            </div>
-            <div class="log-time">2 min ago</div>
-            <div class="log-xp">+50 XP</div>
-          </div>
-          <div class="log-item">
-            <div class="log-icon">🔢</div>
-            <div class="log-info">
-              <div class="log-title">Senku Ishigami started Math Lessons</div>
-              <div class="log-sub">🔢 Math · Level Easy</div>
-            </div>
-            <div class="log-time">8 min ago</div>
-            <div class="log-xp">+30 XP</div>
-          </div>
-          <div class="log-item">
-            <div class="log-icon">🎨</div>
-            <div class="log-info">
-              <div class="log-title">Shikamaru Nara completed Colors — Basic</div>
-              <div class="log-sub">🎨 Colors · Level Easy</div>
-            </div>
-            <div class="log-time">15 min ago</div>
-            <div class="log-xp">+40 XP</div>
-          </div>
-          <div class="log-item">
-            <div class="log-icon">🧩</div>
-            <div class="log-info">
-              <div class="log-title">L Lawliet completed Blending Words</div>
-              <div class="log-sub">🔤 Phonics · Level Medium</div>
-            </div>
-            <div class="log-time">22 min ago</div>
-            <div class="log-xp">+30 XP</div>
-          </div>
-          <div class="log-item">
-            <div class="log-icon">🔡</div>
-            <div class="log-info">
-              <div class="log-title">Senku Ishigami completed Letter Match Quiz</div>
-              <div class="log-sub">🧠 Quiz · Level Easy</div>
-            </div>
-            <div class="log-time">31 min ago</div>
-            <div class="log-xp">+60 XP</div>
-          </div>
+        <div id="activity-log">
+          <div class="log-item"><div class="log-icon">🐉</div><div class="log-info"><div class="log-title">Sosuke Aizen completed The Lost Dragon</div><div class="log-sub">📖 Reading Stories · Level Easy</div></div><div class="log-time">2 min ago</div><div class="log-xp">+50 XP</div></div>
+          <div class="log-item"><div class="log-icon">🔢</div><div class="log-info"><div class="log-title">Senku Ishigami started Math Lessons</div><div class="log-sub">🔢 Math · Level Easy</div></div><div class="log-time">8 min ago</div><div class="log-xp">+30 XP</div></div>
+          <div class="log-item"><div class="log-icon">🎨</div><div class="log-info"><div class="log-title">Shikamaru Nara completed Colors — Basic</div><div class="log-sub">🎨 Colors · Level Easy</div></div><div class="log-time">15 min ago</div><div class="log-xp">+40 XP</div></div>
+          <div class="log-item"><div class="log-icon">🧩</div><div class="log-info"><div class="log-title">L Lawliet completed Blending Words</div><div class="log-sub">🔤 Phonics · Level Medium</div></div><div class="log-time">22 min ago</div><div class="log-xp">+30 XP</div></div>
+          <div class="log-item"><div class="log-icon">🔡</div><div class="log-info"><div class="log-title">Senku Ishigami completed Letter Match Quiz</div><div class="log-sub">🧠 Quiz · Level Easy</div></div><div class="log-time">31 min ago</div><div class="log-xp">+60 XP</div></div>
         </div>
       </div>
  
@@ -196,76 +79,178 @@
  
       <div class="right-dcard">
         <div class="right-title">⚡ Quick Actions</div>
-        <a href="#" class="pill-btn"><span class="pill-icon">📝</span> Create Lesson</a>
-        <a href="#" class="pill-btn"><span class="pill-icon">📢</span> Send Announcement</a>
+        <button class="pill-btn" onclick="openModal('modal-create-lesson')">📝 Create Lesson</button>
+        <button class="pill-btn" onclick="openModal('modal-announce')">📢 Send Announcement</button>
       </div>
  
       <div class="right-dcard">
         <div class="right-title">📚 Lesson Completion</div>
-        <div class="lesson-list">
-          <div class="lesson-row">
-            <div class="lesson-top"><span class="lesson-name">📖 Reading Stories</span><span class="lesson-count">26/32 students</span></div>
-            <div class="lesson-track"><div class="lesson-fill"></div></div>
-          </div>
-          <div class="lesson-row">
-            <div class="lesson-top"><span class="lesson-name">🔤 Phonics & Letters</span><span class="lesson-count">22/32 students</span></div>
-            <div class="lesson-track"><div class="lesson-fill"></div></div>
-          </div>
-          <div class="lesson-row">
-            <div class="lesson-top"><span class="lesson-name">💬 Vocabulary</span><span class="lesson-count">18/32 students</span></div>
-            <div class="lesson-track"><div class="lesson-fill"></div></div>
-          </div>
-          <div class="lesson-row">
-            <div class="lesson-top"><span class="lesson-name">🔢 Math Lessons</span><span class="lesson-count">10/32 students</span></div>
-            <div class="lesson-track"><div class="lesson-fill"></div></div>
-          </div>
-          <div class="lesson-row">
-            <div class="lesson-top"><span class="lesson-name">🎨 Colors</span><span class="lesson-count">8/32 students</span></div>
-            <div class="lesson-track"><div class="lesson-fill"></div></div>
-          </div>
-          <div class="lesson-row">
-            <div class="lesson-top"><span class="lesson-name">🧠 Quizzes</span><span class="lesson-count">14/32 students</span></div>
-            <div class="lesson-track"><div class="lesson-fill"></div></div>
-          </div>
-        </div>
+        <div class="lesson-row"><div class="lesson-top"><span class="lesson-name">📖 Reading Stories</span><span class="lesson-count">26/32</span></div><div class="lesson-track"><div class="lesson-fill" style="width:81%"></div></div></div>
+        <div class="lesson-row"><div class="lesson-top"><span class="lesson-name">🔤 Phonics & Letters</span><span class="lesson-count">22/32</span></div><div class="lesson-track"><div class="lesson-fill" style="width:69%"></div></div></div>
+        <div class="lesson-row"><div class="lesson-top"><span class="lesson-name">💬 Vocabulary</span><span class="lesson-count">18/32</span></div><div class="lesson-track"><div class="lesson-fill" style="width:56%"></div></div></div>
+        <div class="lesson-row"><div class="lesson-top"><span class="lesson-name">🔢 Math Lessons</span><span class="lesson-count">10/32</span></div><div class="lesson-track"><div class="lesson-fill" style="width:31%"></div></div></div>
+        <div class="lesson-row"><div class="lesson-top"><span class="lesson-name">🎨 Colors</span><span class="lesson-count">8/32</span></div><div class="lesson-track"><div class="lesson-fill" style="width:25%"></div></div></div>
+        <div class="lesson-row"><div class="lesson-top"><span class="lesson-name">🧠 Quizzes</span><span class="lesson-count">14/32</span></div><div class="lesson-track"><div class="lesson-fill" style="width:44%"></div></div></div>
       </div>
  
       <div class="right-dcard">
         <div class="right-title">🔔 Alerts</div>
-        <div class="alert-list">
-          <div class="alert-item alert-item--warn">
-            <div class="alert-icon">⚠️</div>
-            <div>
-              <div class="alert-text">5 students haven't logged in this week</div>
-              <div class="alert-sub">Riki Nendou, Okuyasu Nijimura and 3 others</div>
-            </div>
-          </div>
-          <div class="alert-item alert-item--info">
-            <div class="alert-icon">📘</div>
-            <div>
-              <div class="alert-text">Math Lessons only 31% complete</div>
-              <div class="alert-sub">Consider sending a reminder</div>
-            </div>
-          </div>
-          <div class="alert-item alert-item--success">
-            <div class="alert-icon">🏆</div>
-            <div>
-              <div class="alert-text">Sosuke Aizen reached Level 6!</div>
-              <div class="alert-sub">First student to hit Story Master</div>
-            </div>
-          </div>
-          <div class="alert-item alert-item--info">
-            <div class="alert-icon">🎨</div>
-            <div>
-              <div class="alert-text">Colors lesson has lowest engagement</div>
-              <div class="alert-sub">Only 8 of 32 students started</div>
-            </div>
-          </div>
-        </div>
+        <div class="alert-item alert-item--warn"><div class="alert-icon">⚠️</div><div><div class="alert-text">5 students haven't logged in this week</div><div class="alert-sub">Riki Nendou, Okuyasu Nijimura and 3 others</div></div></div>
+        <div class="alert-item alert-item--info"><div class="alert-icon">📘</div><div><div class="alert-text">Math Lessons only 31% complete</div><div class="alert-sub">Consider sending a reminder</div></div></div>
+        <div class="alert-item alert-item--success"><div class="alert-icon">🏆</div><div><div class="alert-text">Sosuke Aizen reached Level 6!</div><div class="alert-sub">First student to hit Story Master</div></div></div>
+        <div class="alert-item alert-item--info"><div class="alert-icon">🎨</div><div><div class="alert-text">Colors lesson has lowest engagement</div><div class="alert-sub">Only 8 of 32 students started</div></div></div>
       </div>
  
     </div>
   </div>
 </div>
+ 
+<!-- MODAL: ADD STUDENT -->
+<div class="modal-overlay" id="modal-add-student" onclick="overlayClose(event,'modal-add-student')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-add-student')">✕</button>
+    <div class="modal-title">➕ Add New Student</div>
+ 
+    <div class="form-group">
+      <label class="form-label">Full Name</label>
+      <input class="form-input" id="new-name" type="text" placeholder="e.g. Naruto Uzumaki">
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Username</label>
+        <input class="form-input" id="new-username" type="text" placeholder="e.g. naruto123">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">E-mail</label>
+      <input class="form-input" id="new-email" type="email" placeholder="e.g. naruto@konoha.com">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Choose Avatar</label>
+      <div class="avatar-picker" id="avatar-picker">
+        <div class="avatar-opt selected" data-av="🐱">🐱</div>
+        <div class="avatar-opt" data-av="🐶">🐶</div>
+        <div class="avatar-opt" data-av="🦊">🦊</div>
+        <div class="avatar-opt" data-av="🐸">🐸</div>
+        <div class="avatar-opt" data-av="🦋">🦋</div>
+        <div class="avatar-opt" data-av="🐻">🐻</div>
+        <div class="avatar-opt" data-av="🐼">🐼</div>
+        <div class="avatar-opt" data-av="🐯">🐯</div>
+        <div class="avatar-opt" data-av="🦁">🦁</div>
+        <div class="avatar-opt" data-av="🐨">🐨</div>
+      </div>
+    </div>
+    <div class="form-actions">
+      <button class="btn-cancel" onclick="closeModal('modal-add-student')">Cancel</button>
+      <button class="btn-submit" onclick="addStudent()">✅ Add Student</button>
+    </div>
+  </div>
+</div>
+ 
+<!-- MODAL: CREATE LESSON -->
+<div class="modal-overlay" id="modal-create-lesson" onclick="overlayClose(event,'modal-create-lesson')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-create-lesson')">✕</button>
+    <div class="modal-title">📝 Create New Lesson</div>
+ 
+    <div class="form-group">
+      <label class="form-label">Lesson Title</label>
+      <input class="form-input" id="lesson-title" type="text" placeholder="e.g. The Magic Forest">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Category</label>
+      <div class="lesson-tabs" id="lesson-cat-tabs">
+        <div class="lesson-tab active" data-cat="reading">📖 Reading</div>
+        <div class="lesson-tab" data-cat="phonics">🔤 Phonics</div>
+        <div class="lesson-tab" data-cat="vocab">💬 Vocab</div>
+        <div class="lesson-tab" data-cat="math">🔢 Math</div>
+        <div class="lesson-tab" data-cat="colors">🎨 Colors</div>
+        <div class="lesson-tab" data-cat="quiz">🧠 Quiz</div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label">Difficulty</label>
+        <select class="form-select" id="lesson-difficulty">
+          <option>Easy</option><option>Medium</option><option>Hard</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">XP Reward</label>
+        <input class="form-input" id="lesson-xp" type="number" placeholder="50" min="10" max="200">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Description</label>
+      <textarea class="form-textarea" id="lesson-desc" placeholder="What will students learn in this lesson?"></textarea>
+    </div>
+    <div class="form-actions">
+      <button class="btn-cancel" onclick="closeModal('modal-create-lesson')">Cancel</button>
+      <button class="btn-submit" onclick="createLesson()">🚀 Create Lesson</button>
+    </div>
+  </div>
+</div>
+ 
+<!-- MODAL: ANNOUNCE -->
+<div class="modal-overlay" id="modal-announce" onclick="overlayClose(event,'modal-announce')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('modal-announce')">✕</button>
+    <div class="modal-title">📢 Send Announcement</div>
+ 
+    <div class="form-group">
+      <label class="form-label">Title</label>
+      <input class="form-input" id="ann-title" type="text" placeholder="e.g. New lessons added!" oninput="updatePreview()">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Message</label>
+      <textarea class="form-textarea" id="ann-msg" placeholder="Write your announcement here…" oninput="updatePreview()"></textarea>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Send To</label>
+      <select class="form-select" id="ann-target">
+        <option value="all">📣 All Students</option>
+        <option value="active">✅ Active Students Only</option>
+        <option value="idle">💤 Idle Students Only</option>
+        <option value="offline">🔴 Offline Students Only</option>
+      </select>
+    </div>
+    <div class="announce-preview" id="ann-preview">
+      <div class="preview-label">Preview</div>
+      <em style="color:#bbb">Start typing to see a preview…</em>
+    </div>
+    <div class="form-actions">
+      <button class="btn-cancel" onclick="closeModal('modal-announce')">Cancel</button>
+      <button class="btn-submit" onclick="sendAnnouncement()">📢 Send Now</button>
+    </div>
+  </div>
+</div>
+ 
+<!--SIDE PANEL: VIEW ALL STUDENTS-->
+<div class="panel-overlay" id="panel-overlay" onclick="closePanel()"></div>
+<div class="side-panel" id="side-panel">
+  <div class="panel-header">
+    <h2>👧 All Students</h2>
+    <button class="panel-close" onclick="closePanel()">✕</button>
+  </div>
+  <div class="panel-search">
+    <input type="text" id="panel-search-input" placeholder="🔍 Search by name or grade…" oninput="renderPanel()">
+  </div>
+  <div class="panel-filter">
+    <div class="filter-chip active" data-filter="all" onclick="setFilter(this)">All</div>
+    <div class="filter-chip" data-filter="Active" onclick="setFilter(this)">🟢 Active</div>
+    <div class="filter-chip" data-filter="Idle" onclick="setFilter(this)">🟡 Idle</div>
+    <div class="filter-chip" data-filter="Offline" onclick="setFilter(this)">⚫ Offline</div>
+  </div>
+  <div class="panel-body" id="panel-body"></div>
+  <div class="panel-footer" id="panel-footer"></div>
+</div>
+ 
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="../java/admin.js"></script>
     </body>
+
+    
+
 </html>
