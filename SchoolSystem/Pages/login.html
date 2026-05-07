@@ -12,7 +12,7 @@
     <a href="/Pages/landingpage.html" class="logo">StudyGo 🎮</a>
     
     <div class="form-box">
-        <form action="../Pages/home.html" method="get">
+        <form id="loginForm">
         
         <h1>Log-in</h1>
         
@@ -35,26 +35,27 @@
     </div>
      <!-- JS -->
     <script>
-        const form = document.getElementById("loginForm");
+        document.addEventListener("DOMContentLoaded", function () {
+        
+        const loginForm = document.getElementById("loginForm");
 
-        form.addEventListener("submit", function(e) {
-            e.preventDefault();
+        if (loginForm) {
+            loginForm.addEventListener("submit", function(e) {
+                e.preventDefault();
 
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-            const isAdmin = document.getElementById("adminMode").checked;
+                const email = document.getElementById("email").value.trim().toLowerCase();
+                const password = document.getElementById("password").value.trim();
 
-            // SIMPLE DEMO LOGIC 
-            if (isAdmin) {
                 if (email === "admin@studygo.com" && password === "admin123") {
-                    window.location.href = "../../pages/admin.html";
+                    window.location.href = "../Pages/admin.html";
                 } else {
-                    alert("Invalid admin credentials");
+                    window.location.href = "../Pages/home.html";
                 }
-            } else {
-                window.location.href = "../Pages/home.html";
-            }
-        });
+            });
+        } else {
+            console.error("The browser couldn't find an element with id='loginForm'");
+        }
+    });
     </script>
 
 
