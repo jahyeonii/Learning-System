@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../css/admin-page.css">
+        <link rel="stylesheet" href="../css/admin.css">
         <title>StudyGo - Admin Panel</title>
     </head>
     <body>
@@ -12,33 +12,28 @@
   <div class="nav-right">
     <a href="#" class="nav-btn">➕ Add Student</a>
     <a href="#" class="nav-btn pill-btn--orange">📢 Announce</a>
-    <!-- <div class="nav-avatar">👩‍🏫</div> -->
   </div>
 </nav>
- 
-<!-- PAGE -->
+
 <div class="page">
  
-  <!-- WELCOME -->
   <div class="welcome-card">
     <div class="welcome-left">
       <h1>Admin Panel 🛠️</h1>
       <p>Here's what's happening in StudyGo today!</p>
       <div class="welcome-stats">
         <div class="w-stat"><div class="w-stat-val">32</div><div class="w-stat-lbl">Students</div></div>
-        <div class="w-stat" style="background:linear-gradient(180deg,#60a5fa,#1d4ed8);"><div class="w-stat-val">18</div><div class="w-stat-lbl">Active Today</div></div>
-        <div class="w-stat" style="background:linear-gradient(180deg,#fb923c,#ea580c);"><div class="w-stat-val">6</div><div class="w-stat-lbl">Lessons</div></div>
-        <div class="w-stat" style="background:linear-gradient(180deg,#fbbf24,#d97706);"><div class="w-stat-val">247</div><div class="w-stat-lbl">XP Earned Today</div></div>
+        <div class="w-stat"><div class="w-stat-val">18</div><div class="w-stat-lbl">Active Today</div></div>
+        <div class="w-stat"><div class="w-stat-val">6</div><div class="w-stat-lbl">Lessons</div></div>
+        <div class="w-stat"><div class="w-stat-val">247</div><div class="w-stat-lbl">XP Earned Today</div></div>
       </div>
     </div>
     <div class="welcome-art"></div>
   </div>
  
-  <!-- COLS -->
   <div class="cols">
     <div class="left-col">
  
-      <!-- STATS GRID -->
       <div class="dcard">
         <div class="dcard-title">📊 Overview</div>
         <div class="stats-grid">
@@ -75,9 +70,8 @@
         </div>
       </div>
  
-      <!-- STUDENT TABLE -->
       <div class="dcard">
-        <div class="dcard-title"> Students <span style="color:#5aad3a;font-size:13px">32 total</span></div>
+        <div class="dcard-title"> Students <span>32 total</span></div>
         <table class="student-table">
           <thead>
             <tr>
@@ -90,62 +84,61 @@
           </thead>
           <tbody>
             <tr>
-              <td><div class="student-name"><span class="student-av" style="background:#fef9c3">🐱</span>Sosuke Aizen</div></td>
+              <td><div class="student-name"><span>🐱</span>Sosuke Aizen</div></td>
               <td><span class="level-tag">Lvl 6</span></td>
               <td><span class="xp-badge">4,820 XP</span></td>
-              <td><div class="progress-mini"><div class="progress-mini-fill" style="width:92%;background:linear-gradient(90deg,#4ade80,#16a34a)"></div></div></td>
+              <td><div class="progress-mini"><div class="progress-mini-fill"></div></div></td>
               <td><span class="status-dot dot-active"></span>Active</td>
             </tr>
             <tr>
-              <td><div class="student-name"><span class="student-av" style="background:#fdf2f8">🐶</span>Johan Liebert</div></td>
+              <td><div class="student-name"><span class="student-av">🐶</span>Johan Liebert</div></td>
               <td><span class="level-tag">Lvl 5</span></td>
               <td><span class="xp-badge">4,210 XP</span></td>
-              <td><div class="progress-mini"><div class="progress-mini-fill" style="width:80%;background:linear-gradient(90deg,#60a5fa,#1d4ed8)"></div></div></td>
+              <td><div class="progress-mini"><div class="progress-mini-fill"></div></div></td>
               <td><span class="status-dot dot-active"></span>Active</td>
             </tr>
             <tr>
-              <td><div class="student-name"><span class="student-av" style="background:#f0fdf4">🦊</span>Shikamaru Nara</div></td>
+              <td><div class="student-name"><span class="student-av">🦊</span>Shikamaru Nara</div></td>
               <td><span class="level-tag">Lvl 5</span></td>
               <td><span class="xp-badge">3,400 XP</span></td>
-              <td><div class="progress-mini"><div class="progress-mini-fill" style="width:68%;background:linear-gradient(90deg,#c084fc,#7c3aed)"></div></div></td>
+              <td><div class="progress-mini"><div class="progress-mini-fill"></div></div></td>
               <td><span class="status-dot dot-active"></span>Active</td>
             </tr>
             <tr>
-              <td><div class="student-name"><span class="student-av" style="background:#eff6ff">🐸</span>Koro Sensei</div></td>
+              <td><div class="student-name"><span class="student-av">🐸</span>Koro Sensei</div></td>
               <td><span class="level-tag">Lvl 4</span></td>
               <td><span class="xp-badge">3,050 XP</span></td>
-              <td><div class="progress-mini"><div class="progress-mini-fill" style="width:58%;background:linear-gradient(90deg,#f472b6,#be185d)"></div></div></td>
+              <td><div class="progress-mini"><div class="progress-mini-fill"></div></div></td>
               <td><span class="status-dot dot-idle"></span>Idle</td>
             </tr>
             <tr>
-              <td><div class="student-name"><span class="student-av" style="background:#faf5ff">🦋</span>Senku Ishigami</div></td>
+              <td><div class="student-name"><span class="student-av">🦋</span>Senku Ishigami</div></td>
               <td><span class="level-tag">Lvl 4</span></td>
               <td><span class="xp-badge">2,780 XP</span></td>
-              <td><div class="progress-mini"><div class="progress-mini-fill" style="width:50%;background:linear-gradient(90deg,#fb923c,#ea580c)"></div></div></td>
+              <td><div class="progress-mini"><div class="progress-mini-fill"></div></div></td>
               <td><span class="status-dot dot-idle"></span>Idle</td>
             </tr>
             <tr>
-              <td><div class="student-name"><span class="student-av" style="background:#fff7ed">🐻</span>Lelouch Lamperouge</div></td>
+              <td><div class="student-name"><span class="student-av">🐻</span>Lelouch Lamperouge</div></td>
               <td><span class="level-tag">Lvl 3</span></td>
               <td><span class="xp-badge">1,940 XP</span></td>
-              <td><div class="progress-mini"><div class="progress-mini-fill" style="width:35%;background:linear-gradient(90deg,#4ade80,#16a34a)"></div></div></td>
+              <td><div class="progress-mini"><div class="progress-mini-fill"></div></div></td>
               <td><span class="status-dot dot-offline"></span>Offline</td>
             </tr>
             <tr>
-              <td><div class="student-name"><span class="student-av" style="background:#fdf2f8">🐼</span>L Lawliet</div></td>
+              <td><div class="student-name"><span class="student-av">🐼</span>L Lawliet</div></td>
               <td><span class="level-tag">Lvl 2</span></td>
               <td><span class="xp-badge">980 XP</span></td>
-              <td><div class="progress-mini"><div class="progress-mini-fill" style="width:18%;background:linear-gradient(90deg,#fbbf24,#d97706)"></div></div></td>
+              <td><div class="progress-mini"><div class="progress-mini-fill"></div></div></td>
               <td><span class="status-dot dot-offline"></span>Offline</td>
             </tr>
           </tbody>
         </table>
         <div style="margin-top:16px">
-          <a href="#" class="pill-btn" style="width:auto;display:inline-flex"><span class="pill-icon"></span> View All 32 Students</a>
+          <a href="#" class="pill-btn"><span class="pill-icon"></span> View All 32 Students</a>
         </div>
       </div>
  
-      <!-- RECENT ACTIVITY LOG -->
       <div class="dcard">
         <div class="dcard-title">📋 Recent Activity</div>
         <div class="log-list">
@@ -197,50 +190,46 @@
         </div>
       </div>
  
-    </div><!-- end left -->
+    </div>
  
-    <!-- RIGHT -->
     <div class="right-col">
  
-      <!-- QUICK ACTIONS -->
       <div class="right-dcard">
         <div class="right-title">⚡ Quick Actions</div>
         <a href="#" class="pill-btn"><span class="pill-icon">📝</span> Create Lesson</a>
         <a href="#" class="pill-btn"><span class="pill-icon">📢</span> Send Announcement</a>
       </div>
  
-      <!-- LESSON PROGRESS -->
       <div class="right-dcard">
         <div class="right-title">📚 Lesson Completion</div>
         <div class="lesson-list">
           <div class="lesson-row">
             <div class="lesson-top"><span class="lesson-name">📖 Reading Stories</span><span class="lesson-count">26/32 students</span></div>
-            <div class="lesson-track"><div class="lesson-fill" style="width:81%;background:linear-gradient(90deg,#4ade80,#16a34a)"></div></div>
+            <div class="lesson-track"><div class="lesson-fill"></div></div>
           </div>
           <div class="lesson-row">
             <div class="lesson-top"><span class="lesson-name">🔤 Phonics & Letters</span><span class="lesson-count">22/32 students</span></div>
-            <div class="lesson-track"><div class="lesson-fill" style="width:69%;background:linear-gradient(90deg,#f472b6,#be185d)"></div></div>
+            <div class="lesson-track"><div class="lesson-fill"></div></div>
           </div>
           <div class="lesson-row">
             <div class="lesson-top"><span class="lesson-name">💬 Vocabulary</span><span class="lesson-count">18/32 students</span></div>
-            <div class="lesson-track"><div class="lesson-fill" style="width:56%;background:linear-gradient(90deg,#60a5fa,#1d4ed8)"></div></div>
+            <div class="lesson-track"><div class="lesson-fill"></div></div>
           </div>
           <div class="lesson-row">
             <div class="lesson-top"><span class="lesson-name">🔢 Math Lessons</span><span class="lesson-count">10/32 students</span></div>
-            <div class="lesson-track"><div class="lesson-fill" style="width:31%;background:linear-gradient(90deg,#fb923c,#ea580c)"></div></div>
+            <div class="lesson-track"><div class="lesson-fill"></div></div>
           </div>
           <div class="lesson-row">
             <div class="lesson-top"><span class="lesson-name">🎨 Colors</span><span class="lesson-count">8/32 students</span></div>
-            <div class="lesson-track"><div class="lesson-fill" style="width:25%;background:linear-gradient(90deg,#e879f9,#a21caf)"></div></div>
+            <div class="lesson-track"><div class="lesson-fill"></div></div>
           </div>
           <div class="lesson-row">
             <div class="lesson-top"><span class="lesson-name">🧠 Quizzes</span><span class="lesson-count">14/32 students</span></div>
-            <div class="lesson-track"><div class="lesson-fill" style="width:44%;background:linear-gradient(90deg,#c084fc,#7c3aed)"></div></div>
+            <div class="lesson-track"><div class="lesson-fill"></div></div>
           </div>
         </div>
       </div>
  
-      <!-- ALERTS -->
       <div class="right-dcard">
         <div class="right-title">🔔 Alerts</div>
         <div class="alert-list">
@@ -275,7 +264,7 @@
         </div>
       </div>
  
-    </div><!-- end right -->
+    </div>
   </div>
 </div>
     </body>
