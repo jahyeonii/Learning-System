@@ -11,10 +11,10 @@ body {
     overflow: hidden;
     justify-content: center; 
     align-items: center;
-    background-size: 1530px 940px;
+    background-size: 1536px 1023px;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url("../Assets/images/brainrot.png");
+    background-image: url(../Pages/brainrot.jpg);
 }
 
 .logo {
@@ -31,7 +31,7 @@ body {
     width: 420px;
     margin: auto;
     padding: 25px;
-    background: #ffffff;
+     background: linear-gradient(135deg, #e3f2fd, #fff8e1);
     border-radius: 20px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     border: 3px dashed #ffd966;

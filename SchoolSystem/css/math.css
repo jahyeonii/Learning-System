@@ -9,15 +9,23 @@ body {
     background: linear-gradient(135deg, #e3f2fd, #fff8e1);
     text-align: center;
     align-items: center;
-    background-size: 1530px 880px;
+    background-size: 1537px 840px;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url(brainrot.jpg.jpg);
+    background-image: url(../Pages/brainrot.jpg);
 }
 
 a {
   text-decoration: none;
   color: white;
+}
+
+.mastery-btn {
+    background: #ff7f50;
+}
+
+.mastery-btn a {
+    color: white; /* text color */
 }
 
 .logo {

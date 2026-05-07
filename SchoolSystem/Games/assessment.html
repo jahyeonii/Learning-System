@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudyGo - Mastery Test</title>
+<link rel="stylesheet" href="../css/mathlesson.css">
+</head>
+
+<body>
+
+<a href="#" class="logo">StudyGo 🎮</a>
+
+<div class="game-box">
+
+    <h2>➕➖ Mastery Test ✖️➗</h2>
+
+    <div id="question"></div>
+    <div class="choices" id="choices"></div>
+    <div id="result"></div>
+
+    <!-- 🔢 Progress instead of score -->
+    <div id="progress">📘 Progress: 0 / 15</div>
+
+    <button class="repeat-btn" onclick="repeatQuestion()">🔁 Repeat</button>
+
+</div>
+
+<audio id="wrongSound" src="wrong.mp3"></audio>
+
+<script>
+let score = 0;
+let questionCount = 0;
+const TOTAL = 15;
+
+let currentSpeech = "";
+let audioEnabled = false;
+
+function speak(text, callback){
+    if(!audioEnabled) return;
+
+    const speech = new SpeechSynthesisUtterance(text);
+    speech.rate = 0.9;
+
+    if(callback) speech.onend = callback;
+
+    window.speechSynthesis.speak(speech);
+}
+
+function repeatQuestion(){
+    speak(currentSpeech);
+}
+
+function newQ(){
+
+    if(questionCount >= TOTAL){
+        showFinal();
+        return;
+    }
+
+    questionCount++;
+    progressDiv.innerText = `📘 Progress: ${questionCount} / 15`;
+
+    let a, b, correct, symbol, speechOp;
+    let type = rand(1,4);
+
+    if(type === 1){
+        a = rand(1,10);
+        b = rand(1,10);
+        correct = a + b;
+        symbol = "+";
+        speechOp = "plus";
+    }
+
+    else if(type === 2){
+        a = rand(2,10);
+        b = rand(1,a);
+        correct = a - b;
+        symbol = "-";
+        speechOp = "minus";
+    }
+
+    else if(type === 3){
+        a = rand(1,5);
+        b = rand(1,5);
+        correct = a * b;
+        symbol = "×";
+        speechOp = "times";
+    }
+
+    else {
+        b = rand(1,5);
+        correct = rand(1,5);
+        a = b * correct;
+        symbol = "÷";
+        speechOp = "divided by";
+    }
+
+    question.innerText = `${a} ${symbol} ${b} = ?`;
+    render(correct);
+
+    currentSpeech = `${a} ${speechOp} ${b}. What is the answer?`;
+
+    setTimeout(() => speak(currentSpeech), 800);
+}
+
+function render(correct){
+    let set = new Set([correct]);
+
+    while(set.size < 4){
+        let v = correct + rand(-3,3);
+        if(v > 0 && v <= 50) set.add(v);
+    }
+
+    choices.innerHTML = "";
+
+    [...set].sort(()=>Math.random()-0.5).forEach(n=>{
+        choices.innerHTML += `
+        <button class="choice-btn" onclick="check(${n},${correct})">
+            ${n}
+        </button>
+        `;
+    });
+}
+
+function check(a,c){
+    if(a===c){
+        result.innerText = "✅ Yay, Correct!";
+        score++;
+    } else {
+        result.innerText = "❌ Oops, Wrong!";
+        wrongSound.currentTime = 0;
+        wrongSound.play();
+    }
+
+    setTimeout(newQ, 800);
+}
+
+function showFinal(){
+    question.innerText = "🎉 Finished!";
+    choices.innerHTML = "";
+    progressDiv.innerText = "";
+
+    result.innerHTML = `
+        <div style="font-size:22px; margin-top:10px;">
+            Your Score: <b>${score} / 15</b>
+        </div>
+        <div style="margin-top:10px;">
+            ${getMessage()}
+        </div>
+        <button class="repeat-btn" onclick="restartGame()">🔄 Play Again</button>
+    `;
+}
+
+function getMessage(){
+    if(score === 15) return "🌟 Perfect! You're a math star!";
+    if(score >= 10) return "👏 Great job!";
+    if(score >= 5) return "👍 Keep practicing!";
+    return "💪 You can do better!";
+}
+
+function restartGame(){
+    score = 0;
+    questionCount = 0;
+    result.innerText = "";
+    progressDiv.innerText = "📘 Progress: 0 / 15";
+    newQ();
+}
+
+function rand(a,b){ return Math.floor(Math.random()*(b-a+1))+a; }
+
+const question = document.getElementById("question");
+const choices = document.getElementById("choices");
+const result = document.getElementById("result");
+const progressDiv = document.getElementById("progress");
+const wrongSound = document.getElementById("wrongSound");
+
+newQ();
+
+document.body.addEventListener("click", () => {
+    audioEnabled = true;
+    speak(currentSpeech);
+}, { once: true });
+
+</script>
+
+</body>
+</html>

@@ -3,6 +3,43 @@ body {
     font-family: "Comic Sans MS", "Poppins", sans-serif;
     background: #f5f2e8; 
     text-align: center;
+    background-size: 1536px 725px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../Pages/brainrot.jpg);
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5%;
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+    background: linear-gradient(to left, #6ec1e4, #4caf50);
+    padding: 10px 0;
+    
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.bottom-nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.bottom-nav a:hover {
+   transform: scale(1.2);
 }
 
 .title {
@@ -21,7 +58,7 @@ body {
     width: 80%;
     max-width: 700px;
     margin: auto;
-    background: #ffffff;
+     background: linear-gradient(135deg, #e3f2fd, #fff8e1);
     border-radius: 20px;
     padding: 20px;
     border: 3px dashed #ffc107; 
