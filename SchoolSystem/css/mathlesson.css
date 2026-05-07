@@ -15,6 +15,31 @@ body{
     min-height:100vh;
 }
 
+.back-btn {
+    position: fixed; 
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+
+    background: linear-gradient(135deg, #fff8e1, #e3f2fd);
+    border: 3px dashed #ffc107;
+    color: #ff7043;
+
+    padding: 10px 18px;
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+}
+
+.back-btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #e3f2fd, #fff8e1);
+}
+
 /* LOGO */
 
 .logo{
